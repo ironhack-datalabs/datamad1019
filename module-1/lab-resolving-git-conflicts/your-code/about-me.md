@@ -1,6 +1,6 @@
 # Who am I
 
-Jorge López-Mingo //cambio master//
+Jorge López-Mingo -cambio branch-
 
 * Where are you from?
 * What do you do?
