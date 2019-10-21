@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Hola, me llamo Juanma
 
 Soy de Móstoles, una ciudad cercana a Madrid.
@@ -16,3 +17,6 @@ Espero descubrirlo en este bootcamp!!
 
 Escribo algo para que tenga un conflicto
 
+=======
+Ya lo tengo escrito en la rama master
+>>>>>>> lab-resolving-git-conflicts
