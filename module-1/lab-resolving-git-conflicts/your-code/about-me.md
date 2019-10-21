@@ -8,6 +8,9 @@
 # Why am I here
 
 * What has brought you to Ironhack? Eager to learn.
+
+# [...]
+
 * What knowledge/skills do you expect to learn in this bootcamp?
 
 # What will I do after the bootcamp?
