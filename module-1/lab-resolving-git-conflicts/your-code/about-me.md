@@ -1,2 +1,3 @@
 Master text 
+Newbranch text
 
