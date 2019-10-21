@@ -40,6 +40,6 @@ The instructional team will review your branch and provide feedback.
 
 ### Happy coding!
 
-Hola que tal
+Hola,
 
-Muy bien
+Soy Alfonso Pastor y tengo dos hijos, Carlos de tres años y Celia de un año. 
