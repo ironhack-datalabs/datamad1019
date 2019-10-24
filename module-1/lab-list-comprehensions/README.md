@@ -24,3 +24,4 @@ Upon completion, add your deliverables to git. Then commit git and push your bra
 
 - [List Comprehensions | Python Documentation](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)
 - [Using List Comprehensions With Pandas](https://chrisalbon.com/python/data_wrangling/pandas_list_comprehension/)
+
