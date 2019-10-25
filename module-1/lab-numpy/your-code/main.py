@@ -71,11 +71,11 @@ print(d_min)
 print
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
+f=np.empty([2,3,5])
+print(f)
 
 
 
-
-"""
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
 If a value in d is larger than d_mean but smaller than d_max, assign 75 to the corresponding value in f.
 If a value equals to d_mean, assign 50 to the corresponding value in f.
@@ -83,7 +83,12 @@ Assign 0 to the corresponding value(s) in f for d_min in d.
 Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
-"""
+print([l for pack in d for lista in pack for l in lista])
+
+"""for pack in f:
+        for lista in pack:
+                for l in lista:
+                        print(l)"""
 
 
 
