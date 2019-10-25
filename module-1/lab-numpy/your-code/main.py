@@ -92,10 +92,13 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
-f [x,y,z] = [25 for x in d for y in x for z in y if z > d_min and z < d_mean]
+
+[f for e in d]
 
 print("Ejercicio 16")
 print(f)
+print("")
+print(d)
 
 
 
