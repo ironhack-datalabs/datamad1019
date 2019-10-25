@@ -36,7 +36,7 @@ else:
 #It is not possible because a and b are arrays of different size
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
-c = np.transpose(b, (1,2,0)).shape
+c = b.T
 print(c)
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
 d = a + c
