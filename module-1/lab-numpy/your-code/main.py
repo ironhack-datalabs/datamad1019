@@ -33,32 +33,34 @@ print(c)
 """
 
 #8. Are you able to add a and b? Why or why not?
-## Not directly summable
-print(a+b)
+## Not directly summable, we need to reshape before operating with a and b
 
-
+c=np.reshape(b,(2,3,5))
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
-
+d=a+c
 
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
-
-
+## Now it works because a and c have the same shape
+print(a)
+print(d)
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
+print(a)
+print(d)
 
-
+        ## elements from same positions are added to form d
 
 
 #12. Multiply a and c. Assign the result to e.
-
+e=a*c
 
 
 #13. Does e equal to a? Why or why not?
+print(e)
 
-
-
+ ## elements from same positions are multiplied to form d. since c is form by ones a=e
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
