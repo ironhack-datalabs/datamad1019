@@ -58,26 +58,41 @@ d = np.add(a,c)
 print(d)
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
-
-
+# Los valores de 'd' son los valores de 'a' + 1
+print(a)
+print("Dimensions:{} Shape:{}".format(len(a.shape),a.shape))
+print(d)
+print("Dimensions:{} Shape:{}".format(len(d.shape),d.shape))
 
 
 #12. Multiply a and c. Assign the result to e.
 
-
+e = np.multiply(a,c)
 
 #13. Does e equal to a? Why or why not?
+# Yes, e equals a because all values in c are equal to 1
 
-
+print(e)
+print(a)
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
+print("Ejercicio 14")
 
+d_max = np.amax(d)
+print(d_max)
 
+d_min = np.amin(d)
+print(d_min)
+
+d_mean = np.mean(d)
+print(d_mean)
 
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
-
+print("Ejercicio 15")
+f = np.zeros((2,3,5))
+print(f)
 
 
 
@@ -90,7 +105,7 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
-
+print("Ejercicio 16")
 
 
 
