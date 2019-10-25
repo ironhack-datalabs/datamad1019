@@ -1,6 +1,6 @@
 #1. Import the NUMPY package under the name np.
-
-
+import numpy as np
+print(np.__version__)
 
 #2. Print the NUMPY version and the configuration.
 
