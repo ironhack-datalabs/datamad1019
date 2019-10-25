@@ -108,8 +108,10 @@ print(np.shape(f))
 
 
 """
-#16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
-If a value in d is larger than d_mean but smaller than d_max, assign 75 to the corresponding value in f.
+#16. Populate the values in f. For each value in d, if it's larger than
+#  d_min but smaller than d_mean, assign 25 to the corresponding value in f.
+If a value in d is larger than d_mean but smaller than d_max, assign 75 to 
+the corresponding value in f.
 If a value equals to d_mean, assign 50 to the corresponding value in f.
 Assign 0 to the corresponding value(s) in f for d_min in d.
 Assign 100 to the corresponding value(s) in f for d_max in d.
@@ -120,7 +122,16 @@ Note: you don't have to use Numpy in this question.
 print("\n"+"==============="+"\n"+"ej16: comparar")
 print("")
 
+#[np.append([f],[25]) for e in np.nditer(d) if e>d_min and if e<d_mean]
+#for e in np.nditer(d):
+ #       if e>d_min(d) and e<d_mean(d):
+  #              f[x]=25
+   #     else e>d_mean(d) and e<d_max(d):
+     #            f[x]=
+      #  else 
 
+print(f)
+for e in 
 
 """
 #17. Print d and f. Do you have your expected f?
