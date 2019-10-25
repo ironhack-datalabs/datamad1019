@@ -127,11 +127,12 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+
 f = np.empty((2,3,5))
+f = f.astype(str)
 for i, x in enumerate(d):
         for j, y in enumerate(x):
                 for k, z in enumerate(y):
-                        
                         if z == d_min:
                                 f[i, j, k] = "A"
                         elif z == d_max:
