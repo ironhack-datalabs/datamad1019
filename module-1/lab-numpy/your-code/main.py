@@ -86,8 +86,10 @@ In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
 
+g=np.ones((2,3,5))
 
-
+np.where(int(d)=d_max,100,np.where(int(d)=d_min,0,np.where(int(d)<d_min,25,50)))
+print(d)
 
 """
 #17. Print d and f. Do you have your expected f?
