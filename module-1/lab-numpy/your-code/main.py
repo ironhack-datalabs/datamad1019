@@ -1,67 +1,100 @@
 #1. Import the NUMPY package under the name np.
-
+print("Ejercicio 1")
+import numpy as np
 
 
 #2. Print the NUMPY version and the configuration.
-
+print("Ejercicio 2")
+print(np.__version__)
+print(np.show_config())
 
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
+print("Ejercicio 3")
+a=np.random.random((2,3,5))
 
 
 
 #4. Print a.
-
+print("Ejercicio 4")
+print(a)
 
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
-
+print("Ejercicio 5")
+b=np.ones((5,2,3))
 
 
 #6. Print b.
-
+print("Ejercicio 6")
+print(b)
 
 
 #7. Do a and b have the same size? How do you prove that in Python code?
-
+print("Ejercicio 7")
+if a.size == b.size:
+        print(True)
+else:
+        print(False)
 
 
 
 #8. Are you able to add a and b? Why or why not?
-
+print("Ejercicio 8")
+if a.shape==b.shape:
+        print(True)
+else:
+        print(False)
+#not the same dimensions
 
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
-
+print("Ejercicio 9")
+c=np.reshape(b,(2,3,5))
 
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
-
+print("Ejercicio 10")
+d=c+a
+if a.shape==c.shape:
+        print("Same shape")
 
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
-
+print("Ejercicio 11")
+print(a)
+print(d)
+#Same dimensions, d-a=c
 
 
 
 #12. Multiply a and c. Assign the result to e.
-
+print("Ejercicio 12")
+e=a*c
 
 
 #13. Does e equal to a? Why or why not?
-
-
+print("Ejercicio 13")
+print(e)
+print(a)
+#Si, c son todo 1 por lo tanto no afecta a a
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
-
+print("Ejercicio 14")
+d_max=np.max(d)
+d_min=np.min(d)
+d_mean=np.mean(d)
+print("Max:",d_max,"Min:",d_min,"Mean:",d_mean)
 
 
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
-
+print("Ejercicio 15")
+f=np.empty((2,3,5))
+print(f)
 
 
 
@@ -74,8 +107,20 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
-
-
+print("Ejercicio 16")
+for x in range(f.shape[0]):
+        for y in range(f.shape[1]):
+                for z in range(f.shape[2]):
+                        if d[x,y,z]>d_min and d[x,y,z]<d_mean:
+                                f[x,y,z]=25
+                        elif d[x,y,z]>d_mean and d[x,y,z]<d_max:
+                                f[x,y,z]=75
+                        elif d[x,y,z]==d_mean:
+                                f[x,y,z]=50
+                        elif d[x,y,z]==d_min:
+                                f[x,y,z]=0
+                        elif d[x,y,z]==d_max:
+                                f[x,y,z]=100
 
 
 """
@@ -98,6 +143,9 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
+print("Ejercicio 17")
+print(d)
+print(f)
 
 
 """
@@ -112,3 +160,21 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+print("Ejercicio 18")
+
+f=f.astype(str)
+
+for x in range(f.shape[0]):
+        for y in range(f.shape[1]):
+                for z in range(f.shape[2]):
+                        if d[x,y,z]>d_min and d[x,y,z]<d_mean:
+                                f[x,y,z]='B'
+                        elif d[x,y,z]>d_mean and d[x,y,z]<d_max:
+                                f[x,y,z]='D'
+                        elif d[x,y,z]==d_mean:
+                                f[x,y,z]='C'
+                        elif d[x,y,z]==d_min:
+                                f[x,y,z]='A'
+                        elif d[x,y,z]==d_max:
+                                f[x,y,z]='E'
+print(f)
