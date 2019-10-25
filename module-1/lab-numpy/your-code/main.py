@@ -63,14 +63,18 @@ print(e)
  ## elements from same positions are multiplied to form d. since c is form by ones a=e
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
+d_max=np.max(d)
+d_min=np.min(d)
+d_mean=np.mean(d)
 
-
-
+print(d_max)
+print(d_min)
+print(d_mean)
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
+f=np.empty(shape=[2,3,5])
 
-
-
+print(f)
 
 """
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
