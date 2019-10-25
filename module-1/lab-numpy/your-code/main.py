@@ -1,6 +1,6 @@
 #1. Import the NUMPY package under the name np.
 
-
+Hola Buenas tardes
 
 #2. Print the NUMPY version and the configuration.
 
