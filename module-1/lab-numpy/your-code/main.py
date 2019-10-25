@@ -91,13 +91,19 @@ print(np.array_equal(e,a))
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 print("\n"+"==============="+"\n"+"ej14: max,min,mean")
-print("")
+d_max=np.max(d)
+d_min=np.min(d)
+d_mean=np.mean(d)
+print("max",d_max)
+print("min",d_min)
+print("mean",d_mean)
 
 
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
-print("\n"+"==============="+"\n"+"ej14: comparar")
-print("")
+print("\n"+"==============="+"\n"+"ej15: label the values")
+f=np.empty((2,3,5))
+print(np.shape(f))
 
 
 
