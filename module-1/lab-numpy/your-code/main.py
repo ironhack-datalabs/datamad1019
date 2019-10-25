@@ -33,20 +33,16 @@ else:
 
 
 #8. Are you able to add a and b? Why or why not?
-
-
+#It is not possible because a and b are arrays of different size
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
-
-
-
+c = np.transpose(b, (1,2,0)).shape
+print(c)
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
-
-
+d = a + c
+print(d)
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
-
-
 
 
 #12. Multiply a and c. Assign the result to e.
