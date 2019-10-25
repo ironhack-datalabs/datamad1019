@@ -103,3 +103,23 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+l = f.astype('str')
+for a in range(d.shape[0]):
+        for b in range(d.shape[1]):
+                for c in range(d.shape[2]):
+                        if  d_mean < d[a,b,c] < d_max:                                
+                                l[a,b,c] = 'D'
+                                continue
+                        elif d_min < d[a,b,c] < d_mean:
+                                l[a,b,c] = 'B'
+                                continue
+                        elif d[a,b,c] == d_mean:
+                                l[a,b,c] = 'C'
+                                continue
+                        elif d[a,b,c] == d_min:
+                                l[a,b,c] = 'A'
+                                continue
+                        elif d[a,b,c] == d_max:
+                                l[a,b,c] = 'E'
+                                continue
+print('Bonus----------->\n\n',l)
