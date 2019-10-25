@@ -85,7 +85,23 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
+print("#16\n")
 
+lst = []
+lst2 = []
+[lst.append(value3) for value in d for value2 in value for value3 in value2]               
+for e in lst:
+        if (e > d_min) & (e < d_mean):
+                e = 25
+                lst2.append(e)
+        elif (e > d_mean) & (e < d_max):
+                e = 50
+                lst2.append(e)
+        else:
+                e = 75
+                lst2.append(e)
+f = np.concatenate(lst, axis=0)
+print(f)
 
 
 
