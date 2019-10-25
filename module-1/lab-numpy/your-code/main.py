@@ -3,46 +3,38 @@ import numpy as np
 
 
 #2. Print the NUMPY version and the configuration.
-
-
-
+#np.version.version
+print(np.version.version)
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
-
-
-
+a = np.random.random((2,3,5))
 #4. Print a.
-
-
-
+print('Random a 2x3x5 ----> \n\n',a)
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
-
-
-
+b = np.ones([5,2,3])
 #6. Print b.
+print('Ones b 5x2x3 ----> \n\n',b)
+#7. Do a and b have the same size? How do you prove that in Python code?e
+e = np.reshape(a,(5,2,3))
 
-
-
-#7. Do a and b have the same size? How do you prove that in Python code?
-
-
-
-
+print('Reshape a 5x2x3----> \n\n',e)
 #8. Are you able to add a and b? Why or why not?
-
-
+addAB = np.add(e,b)
+print('add a b ----> \n\n',addAB)
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
-
+c = np.reshape(b,(2,3,5))
 
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
-
+d = np.add(a,c)
+print('add a c ----> \n\n',d)
 
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
-
+print('a------>\n\n',a)
+print('d------>\n\n',d)
 
 
 
