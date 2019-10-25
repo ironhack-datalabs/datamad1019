@@ -2,7 +2,7 @@
 
 # Lab | Introduction to Pandas
 
-## Introduction
+## Introduction 
 
 In the Introduction to Pandas lesson, we learned about the two main data structures in Pandas (Series and DataFrames), how to work with them, how to obtain them from other data structures, and how to perform basic calculations with them.
 
