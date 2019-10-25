@@ -10,15 +10,18 @@ a = np.random.random((2,3,5))
 a_1 = np.random.randn(2,3,5)
 
 #4. Print a.
+print("Apartado #4:\n")
 print (a)
 # print("\n\n")
 # print (a_1)
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
+
 b = np.ones((5,2,3))
 
 #6. Print b.
+print("Apartado #5:\n")
 print (b)
 
 #7. Do a and b have the same size? How do you prove that in Python code?
@@ -35,9 +38,11 @@ c = b.T
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
 c = np.reshape(c, (2,3,5))
 d = a + c
+
 # Ahora funciona porque tanto a como c tienen el mismo número de elementos en cada dimensión 2x3x5
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
+print("Apartado #11:\n")
 print(a)
 print("\n\n")
 print(d)
@@ -47,7 +52,7 @@ print(d)
 e = a*c
 
 #13. Does e equal to a? Why or why not?
-print("¿Las matrices a y e son iguales? ", e==a)
+print("¿Las matrices a y e son iguales? ", np.array_equal(a,e))
 #Estamos multiplicando cada elemento x1, por tanto tenemos la misma matriz
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
@@ -57,8 +62,6 @@ d_mean = np.mean(d)
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 f = np.empty((2,3,5))
-
-
 
 """
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
@@ -70,8 +73,20 @@ In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
 
-
-
+for i, x in enumerate(d):
+        for j, y in enumerate(x):
+                for k, z in enumerate(y):
+                        if z == d_min:
+                                f[i, j, k] = 0
+                        elif z == d_max:
+                                f[i, j, k] = 100
+                        elif z == d_mean:
+                                f[i, j, k] = 50
+                        elif z > d_mean:
+                                f[i, j, k] = 75
+                        else:
+                                f[i, j, k] = 25
+print (f)
 
 """
 #17. Print d and f. Do you have your expected f?
@@ -93,7 +108,12 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-
+print("Apartado #17:\n")
+print("Matriz d:\n")
+print (d)
+print("Matriz f:\n")
+print (f)
+# Creo que sí he obtenido lo que quería
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
@@ -107,3 +127,21 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+f = np.empty((2,3,5))
+for i, x in enumerate(d):
+        for j, y in enumerate(x):
+                for k, z in enumerate(y):
+                        
+                        if z == d_min:
+                                f[i, j, k] = "A"
+                        elif z == d_max:
+                                f[i, j, k] = "E"
+                        elif z == d_mean:
+                                f[i, j, k] = "C"
+                        elif z > d_mean:
+                                f[i, j, k] = "D"
+                        else:
+                                f[i, j, k] = "B"
+print("La matriz F con letras: \n")
+print (f)
+
