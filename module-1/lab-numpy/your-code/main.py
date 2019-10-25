@@ -57,12 +57,12 @@ d = np.add(c,a)
 
 e = np.multiply(c,a)
 
-print(e)
+#print(e)
 
 
 #13. Does e equal to a? Why or why not?
 
-print (np.array_equal(a, e))
+#print (np.array_equal(a, e))
 
 #si porque hemos multiplicado dos arrays con la misma estrucura y uno de ellos los valores eran 1 con lo que a y e son iguales
 
@@ -76,7 +76,9 @@ d_mean = (np.mean(d))
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
+f = np.empty((2,3,5))
 
+print(f)
 
 
 """
@@ -88,6 +90,24 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
+for i in range(d.shape[0]):
+        for h in range (d.shape[1]):
+                for j in range (d.shape[2]):
+                        if d[i,h,j] > d_min and d[i,h,j] < d_mean:
+                                f[i,h,j] = 25
+                        elif d[i,h,j] > d_mean and d[i,h,j] < d_max:
+                                f[i,h,j] = 75
+                        elif d[i,h,j] == d_mean:
+                                f[i,h,j] = 50
+                        elif d[i,h,j] == d_max:
+                                f[i,h,j] = 100
+                        elif d[i,h,j] == d_min:
+                                f[i,h,j] = 0
+
+
+
+print(f)
+        
 
 
 
