@@ -3,7 +3,7 @@
 import numpy as np
 
 #2. Print the NUMPY version and the configuration.
-print("Numpy: ", np.version.version)
+print("#2: ", np.version.version)
 
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
@@ -12,7 +12,7 @@ print("Numpy: ", np.version.version)
 a = np.random.random((2,3,5))
 #4. Print a.
 
-#print(a)
+print("#4: ", a)
 
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
@@ -22,12 +22,12 @@ b = np.ones((5, 3, 2))
 
 #6. Print b.
 
-#print(b)
+print("#6: ", b)
 
 #7. Do a and b have the same size? How do you prove that in Python code?
-print("Shape of a: ", a.shape)
-print("Shape of b: ", b.shape)
-print(b.shape == a.shape)
+print("#7: Shape of a: ", a.shape)
+print("#7: Shape of b: ", b.shape)
+print("#7: ", b.shape == a.shape)
 
 
 #8. Are you able to add a and b? Why or why not?
@@ -42,8 +42,8 @@ c = b.T
 d = np.add(a, c)
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
-#print(a)
-#print(d)
+print("#11: ", a)
+print("#11: ", d)
 """
  Explanation: array has shape 2 x 3 x 5 with all random values (floats) between 0 and 1 inside it.
  Array d has shape 2 x 3 x 5 with all values (floats) between 1 and 2 since is the sum of a and b 
@@ -56,7 +56,7 @@ e = np.multiply(a, c)
 
 #13. Does e equal to a? Why or why not?
 
-print(a == e)
+print("#13: ", a == e)
 """
  a equals e because of two reasons:
  1) a is an array of random values (floats) between 0 and 1
@@ -66,15 +66,14 @@ print(a == e)
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
 d_max = np.max(d)
-print("Max of d: ", d_max)
+print("#14: Max of d: ", d_max)
 d_min = np.min(d)
-print("Min of d: ", d_min)
+print("#14: Min of d: ", d_min)
 d_mean = np.mean(d)
-print("Mean of d: ", d_mean)
+print("#14: Mean of d: ", d_mean)
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
-f = np.empty((2, 3, 5))
-print(f)
+f = np.empty((2, 3, 5)).astype("object")
 
 """
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
@@ -100,7 +99,7 @@ for i_index, i in enumerate(d):
                         elif k == d_max:
                                 f[i_index, j_index, k_index] = 100
 
-print(f)
+print("#16: ", f)
 
 
 #17. Print d and f. Do you have your expected f?
@@ -125,8 +124,9 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
 """
 
 
-"""
+
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
+"""
 ("A", "B", "C", "D", and "E") to label the array elements? You are expecting the result to be:
 array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'D',  'D',  'B',  'B',  'B'],
@@ -137,3 +137,18 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+for i_index, i in enumerate(d):
+        for j_index, j in enumerate(i):
+                for k_index, k in enumerate(j):
+                        if d_min < k < d_mean:
+                                f[i_index, j_index, k_index] = "B"
+                        elif d_mean < k < d_max:
+                                f[i_index, j_index, k_index] = "D"
+                        elif k == d_mean:
+                                f[i_index, j_index, k_index] = "C"
+                        elif k == d_min:
+                                f[i_index, j_index, k_index] = "A"
+                        elif k == d_max:
+                                f[i_index, j_index, k_index] = "E"
+
+print("#18: ", f)
