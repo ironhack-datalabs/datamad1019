@@ -64,7 +64,7 @@ print(np.array_equal(e,a))
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
-d_max=np.min(d)
+d_max=np.max(d)
 d_min=np.min(d)
 d_mean=np.mean(d)
 print(d_max,d_mean,d_mean)
@@ -84,14 +84,23 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
-lista=[terceraD for primeraD in d for segundaD in primeraD for terceraD in segundaD]
-for e in lista:
-        if d_min<e<d_mean:
-        elif d_mean<e<d_max:
-        elif e==d_min:
-        elif e==d_mean:
-        elif e==d_max:
-        
+
+lista2=[]
+for i in range(d.shape[0]):
+        for j in range(d.shape[1]):
+                for k in range(d.shape[2]):
+                    if d_min<d[i,j,k]<d_mean:
+                            f[i,j,k]=25
+                    elif d_mean<d[i,j,k]<d_max:
+                            f[i,j,k]=75
+                    elif d[i,j,k]==d_min:
+                            f[i,j,k]=0      
+                    elif d[i,j,k]==d_mean:
+                            f[i,j,k]=50
+                    elif d[i,j,k]==d_max:
+                            f[i,j,k]=100
+
+
 
 
 
@@ -116,7 +125,7 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
 
-
+print(f)
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
 ("A", "B", "C", "D", and "E") to label the array elements? You are expecting the result to be:
@@ -129,3 +138,20 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+
+klk=np.empty_like(d)
+g=klk.astype('str')
+for i in range(d.shape[0]):
+        for j in range(d.shape[1]):
+                for k in range(d.shape[2]):
+                    if d_min<d[i,j,k]<d_mean:
+                            g[i,j,k]="B"
+                    elif d_mean<d[i,j,k]<d_max:
+                            g[i,j,k]="D"
+                    elif d[i,j,k]==d_min:
+                            g[i,j,k]="A"      
+                    elif d[i,j,k]==d_mean:
+                            g[i,j,k]="C"
+                    elif d[i,j,k]==d_max:
+                            g[i,j,k]="E"
+print(g)
