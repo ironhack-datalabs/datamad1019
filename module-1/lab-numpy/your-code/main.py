@@ -4,7 +4,7 @@ import numpy as np
 
 #2. Print the NUMPY version and the configuration.
 print(np.version.version)
-print(np.show_config()
+print(np.show_config())
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
@@ -58,25 +58,31 @@ print(d)
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 print(a,d)
 
-# d values
+# d values are exactly a values +1
 
 #12. Multiply a and c. Assign the result to e.
 
-
+e=a*c
 
 #13. Does e equal to a? Why or why not?
+if e.all()==a.all():
+        print(True)
+else:
+        print(False)
 
+# a = e = a *c beacause c is an array with the same dimensions as a with al the values equal to 1
 
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
-
-
+d_max=np.max(d)
+d_min=np.min(d)
+d_mean=np.mean(d)
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
-
+f=np.empty((2,3,5))
 
 
 """
