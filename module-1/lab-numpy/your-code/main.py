@@ -1,3 +1,4 @@
+
 #1. Import the NUMPY package under the name np.
 import numpy as np
 
@@ -11,7 +12,7 @@ print("Numpy: ", np.version.version)
 a = np.random.random((2,3,5))
 #4. Print a.
 
-print(a)
+#print(a)
 
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
@@ -21,7 +22,7 @@ b = np.ones((5, 3, 2))
 
 #6. Print b.
 
-print(b)
+#print(b)
 
 #7. Do a and b have the same size? How do you prove that in Python code?
 print("Shape of a: ", a.shape)
@@ -41,8 +42,8 @@ c = b.T
 d = np.add(a, c)
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
-print(a)
-print(d)
+#print(a)
+#print(d)
 """
  Explanation: array has shape 2 x 3 x 5 with all random values (floats) between 0 and 1 inside it.
  Array d has shape 2 x 3 x 5 with all values (floats) between 1 and 2 since is the sum of a and b 
@@ -73,7 +74,7 @@ print("Mean of d: ", d_mean)
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
 f = np.empty((2, 3, 5))
-
+print(f)
 
 """
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
@@ -85,11 +86,25 @@ In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
 
+for i in d:
+        for j in i:
+                for k in j:
+                        if d_min < k < d_mean:
+                                f[] = 25
+                        elif d_mean < k < d_max:
+                                f[] = 75
+                        elif k == d_mean:
+                                f[] = 50
+                        elif k == d_min:
+                                f[] = 0
+                        elif k == d_max:
+                                f[] = 100
+
+print(f)
 
 
-
-"""
 #17. Print d and f. Do you have your expected f?
+"""
 For instance, if your d is:
 array([[[1.85836099, 1.67064465, 1.62576044, 1.40243961, 1.88454931],
         [1.75354326, 1.69403643, 1.36729252, 1.61415071, 1.12104981],
