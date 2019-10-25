@@ -86,19 +86,19 @@ In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
 
-for i in d:
-        for j in i:
-                for k in j:
+for i_index, i in enumerate(d):
+        for j_index, j in enumerate(i):
+                for k_index, k in enumerate(j):
                         if d_min < k < d_mean:
-                                f[] = 25
+                                f[i_index, j_index, k_index] = 25
                         elif d_mean < k < d_max:
-                                f[] = 75
+                                f[i_index, j_index, k_index] = 75
                         elif k == d_mean:
-                                f[] = 50
+                                f[i_index, j_index, k_index] = 50
                         elif k == d_min:
-                                f[] = 0
+                                f[i_index, j_index, k_index] = 0
                         elif k == d_max:
-                                f[] = 100
+                                f[i_index, j_index, k_index] = 100
 
 print(f)
 
