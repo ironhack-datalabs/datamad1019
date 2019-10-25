@@ -30,12 +30,12 @@ print(a.size)
 print(b.size)
 
 if a.size==b.size:
-        return True
+        print(True)
 else:
-        return False
+        print(False)
 
 #8. Are you able to add a and b? Why or why not?
-a+b
+#a+b
 # We can not add a and b because a ValueError occurs: operand can not be broadcast together with shapes
 
 #This means you cant add together two numpy arrays if they have different shapes
@@ -43,10 +43,10 @@ a+b
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
 c=b.T
-
+print(c)
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
-a+c
+#for a+c
 #Can't add a+c because they have different shape, so I proceed to reshape c to (2,3,5)
 
 c=c.reshape((2,3,5))
@@ -80,10 +80,15 @@ d_max=np.max(d)
 d_min=np.min(d)
 d_mean=np.mean(d)
 
+print(d_max)
+print(d_min)
+print(d_mean)
+
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
 f=np.empty((2,3,5))
 
+print(f)
 
 """
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
@@ -94,7 +99,18 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
-
+for x in range(2):
+    for y in range(3):
+        for z in range(5):
+            if d[x,y,z]<d_mean and d[x,y,z]>d_min:
+                f[x,y,z]=25
+            elif d[x,y,z]>d_mean and d[x,y,z]<d_max:
+                f[x,y,z]=75
+            elif d[x,y,z]==d_min:
+                f[x,y,z]=0
+            else:
+                f[x,y,z]=100
+print(f)
 
 
 
@@ -118,7 +134,17 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-
+for x in range(2):
+    for y in range(3):
+        for z in range(5):
+            if d[x,y,z]<d_mean and d[x,y,z]>d_min:
+                f[x,y,z]=25
+            elif d[x,y,z]>d_mean and d[x,y,z]<d_max:
+                f[x,y,z]=75
+            elif d[x,y,z]==d_min:
+                f[x,y,z]=0
+            else:
+                f[x,y,z]=100
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
