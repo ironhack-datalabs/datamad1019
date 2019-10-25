@@ -33,39 +33,53 @@ print(b)
 
 #8. Are you able to add a and b? Why or why not?
 
-
+#Matematicamente no se puede sumar, ya que aunque tienen el mismo numero de elementos, no tienen las 
+#dimensiones del mismo tamaño.
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
 
-
+c = b.T
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
 
-
+d = a+c.reshape(2,3,5)
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
+print(a)
+print("")
+print(d)
+print("")
+print("")
 
+# El valor de d es igual al valor de a+1. Esto es porque a 'a' se le sumó 1 al añadirle b, siendo que
+# esta era todo 1.
 
 
 #12. Multiply a and c. Assign the result to e.
 
-
+e = a*c.reshape(2,3,5)
 
 #13. Does e equal to a? Why or why not?
 
+print(a)
+print("")
+print("")
+print(e)
 
+# Si, a y e son iguales, porque c es la matriz identidad.
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
-
+d_max = d.max
+d_min = d.min
+d_mean = d.mean
 
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
-
-
+f = np.empty
 
 """
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
