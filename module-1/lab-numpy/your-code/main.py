@@ -4,7 +4,7 @@ import numpy as np
 
 #2. Print the NUMPY version and the configuration.
 
-
+a
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
