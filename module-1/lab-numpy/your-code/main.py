@@ -139,5 +139,18 @@ Again, you don't need Numpy in this question.
 """
 
         # you should simply write the name of the string instead of the value:
-
-
+x = f.astype(str)
+for q in range(dim[0]):
+         for w in range(dim[1]):
+                for r in range(dim[2]):
+                        if d[q,w,r]>d_min and d[q,w,r]<d_mean:
+                                x[q,w,r]="C"
+                        elif d[q,w,r]>d_mean and d[q,w,r]<d_max:
+                                x[q,w,r]="D"
+                        elif d[q,w,r]==d_mean:
+                                x[q,w,r]="B"
+                        elif d[q,w,r]==d_min:
+                                x[q,w,r]="A"
+                        else:
+                                x[q,w,r]="E"
+print(x)
