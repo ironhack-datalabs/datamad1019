@@ -106,7 +106,7 @@ for i in range(d.shape[0]):
 
 
 
-print(f)
+#print(f)
         
 
 
@@ -132,7 +132,8 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-
+#print(d)
+#print(f)
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
