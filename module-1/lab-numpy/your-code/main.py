@@ -42,15 +42,20 @@ else:
 
 #8. Are you able to add a and b? Why or why not?
 
+#print(np.add(a,b))
 
+# a and b have a different structure.
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
-
-
+# Como con .T las estructuras siguen siendo incompatibles, procedo a realizar un re-shape.
+c = np.reshape(b,(2,3,5)) 
+print(c.shape)
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
 
+d = np.add(a,c)
 
+print(d)
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
