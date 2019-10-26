@@ -53,23 +53,23 @@ e = a * c
 
 
 #13. Does e equal to a? Why or why not?
-if e == a:
+if e.all() == a.all():
         print(True)
 else:
         print(False)
-#
+# e and a are the same array because c is the transpose array of b in which all values are all 1
 
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
-
-
-
+d_mean = np.mean(d)
+d_min = np.min(d)
+d_max = np.max(d)
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
+f = np.empty([2,3,5], float)
 
-
-
+print(f)
 
 """
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
