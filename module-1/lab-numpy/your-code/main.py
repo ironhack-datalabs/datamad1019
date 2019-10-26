@@ -74,8 +74,6 @@ print(d_mean)
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 f=np.empty(shape=[2,3,5])
 
-print(f)
-
 """
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
 If a value in d is larger than d_mean but smaller than d_max, assign 75 to the corresponding value in f.
@@ -89,20 +87,26 @@ Note: you don't have to use Numpy in this question.
 g=np.ones((2,3,5))
 
 da=np.array(d)
-print(d)
-print(da)
-d3=np.where(d==d_max,2,np.where(d==d_min,0,1))
-print(d3)
+fa=np.array(f)
 
-For 
-if rnd > 50:
-        temp.append(a)
-    else:
-        temp.append(b)
-    if rnd == 0:
-         break
+f2=np.where(d==d_max,100,np.where(d==d_min,0,np.where(d==d_mean,50,np.where(d>d_mean,75,np.where(d<d_mean,25,1)))))
+
+"""
+l = []
+for i in range(100000):
+  a = np.random.normal()
+  l.append(a)
+l = np.array(l)
 
 
+for i in da:
+        if i==d_max:
+                np.append(fa,1)
+        else:
+                np.append(fa,2)
+
+print(fa)
+"""
 """
 #17. Print d and f. Do you have your expected f?
 For instance, if your d is:
@@ -124,6 +128,9 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
 
+print(d)
+
+print(f2)
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
