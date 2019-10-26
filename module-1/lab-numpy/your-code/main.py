@@ -17,7 +17,7 @@ print(a1)
 print(a2)
 
 #4. Print a.
-print(a)
+print('a es:', a)
 
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
@@ -26,7 +26,7 @@ b=np.ones((5,2,3))
 
 
 #6. Print b.
-print(b)
+print('b es:',b)
 
 
 #7. Do a and b have the same size? How do you prove that in Python code?
@@ -41,8 +41,8 @@ No. They don not have the same structure.
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
 c=np.reshape(b,(2,3,5))
-print(c)
-print(a)
+print('c es:',c)
+print('a es:',a)
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
 d=np.add(a, c)
@@ -56,7 +56,7 @@ In d, as we addded b, all values have +1.
 
 #12. Multiply a and c. Assign the result to e.
 e=a*c
-print(e)
+print('E es:',e)
 
 
 
@@ -87,18 +87,28 @@ If a value equals to d_mean, assign 50 to the corresponding value in f.
 Assign 0 to the corresponding value(s) in f for d_min in d.
 Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
-Note: you don't have to use Numpy in this question.
+Note: you dont have to use Numpy in this question.
 
-for index, values in np.ndenumerate(d):
-  
-    print(index, values) 
+for pack in (range(d.shape[0])):
+  for lista in (range(d.shape[1])): 
+    for l in (range(d.shape[2])):
+        if d_min < d[pack,lista,l] < d_mean:
+          f[pack,lista,l]=25
+        elif d_mean < d[pack,lista,l] < d_max:
+          f[pack,lista,l]=75
+        elif d[pack,lista,l] == d_mean:
+          f[pack,lista,l]=50
+        elif d[pack,lista,l] == d_min:
+          f[pack,lista,l]=0
+        elif d[pack,lista,l] == d_max:
+          f[pack,lista,l]=100  
 
 
 
 
 
 
-"""
+
 #17. Print d and f. Do you have your expected f?
 For instance, if your d is:
 array([[[1.85836099, 1.67064465, 1.62576044, 1.40243961, 1.88454931],
@@ -117,8 +127,8 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
        [[ 25.,  25.,  25.,  25., 100.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
-"""
 
+print('F:', f)
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
@@ -132,3 +142,21 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+
+f2 = d.astype('str')
+print(f2)
+
+for pack in (range(d.shape[0])):
+  for lista in (range(d.shape[1])): 
+    for l in (range(d.shape[2])):
+        if d_min < d[pack,lista,l] < d_mean:
+          f2[pack,lista,l]='A'
+        elif d_mean < d[pack,lista,l] < d_max:
+          f2[pack,lista,l]='B'
+        elif d[pack,lista,l] == d_mean:
+          f2[pack,lista,l]='C'
+        elif d[pack,lista,l] == d_min:
+          f2[pack,lista,l]='D'
+        elif d[pack,lista,l] == d_max:
+          f2[pack,lista,l]='E'  
+print(f2)
