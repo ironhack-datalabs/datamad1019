@@ -183,3 +183,51 @@ for k in range(f.shape[0]):
 
 print("\nPRINT new f:")
 print(f)
+
+###################################################################################################
+
+print("\n\nADDITIONAL CHALLENGES in README.md:")
+
+print("\nInsert dashes:")
+
+def insert_dash(num):
+    output = ""
+    for i in range(len(str(num))):
+        if i < len(str(num))-1 and int(str(num)[i]) % 2 == 1 and int(str(num)[i+1]) % 2 == 1:
+            output += str(num)[i]+"-"
+        else:
+            output += str(num)[i]
+    return(output)
+
+print(insert_dash(556789531201))
+
+print("\nWeird matrix multiplication:")
+
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[10, 20, 30], [40, 50, 60]])
+AB = np.array([[ 10, 20, 30, 20, 40, 60], [ 40, 50, 60, 80, 100, 120], [ 30, 60, 90, 40, 80, 120], [120, 150, 180, 160, 200, 240]])
+
+def weird_mul(A, B):
+    import numpy as np
+    lista = []
+    if len(A.shape) != 2 or len(B.shape) != 2:
+      return(None)
+    if A.shape == (0,0) or B.shape == (0,0):
+      return(None)
+    else:
+      for i in range(A.shape[0]):
+        for b in range(B.shape[0]):
+          aux = np.array([])
+          for j in range(A.shape[1]):
+            aux = np.append(aux, (A[i,j] * B[b]))
+          lista.append(np.ndarray.tolist(aux))
+    return(np.array(lista))
+
+print(weird_mul(A, B))
+print("Output == Expected Output?")
+print(weird_mul(A, B) == AB)
+
+print("\nThinkful - Logic Drills: Red and bumpy:")
+
+
+
