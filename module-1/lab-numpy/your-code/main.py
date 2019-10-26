@@ -67,7 +67,7 @@ d_min = np.min(d)
 d_max = np.max(d)
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
-f = np.empty([2,3,5], float)
+f = np.empty([2,3,5])
 
 print(f)
 
@@ -80,9 +80,19 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
-
-
-
+for i in range(len(d)):
+        for j in range(len(d[i])):
+                for k in range(len(d[i][j])):
+                        if d[i][j][k] < d_mean and d[i][j][k] > d_min:
+                                f[i][j][k] = 25
+                        elif d[i][j][k] > d_mean and d[i][j][k] < d_max:
+                                f[i][j][k] = 75
+                        elif d[i][j][k] == d_mean:
+                                f[i][j][k] = 50
+                        elif d[i][j][k] == d_min:
+                                f[i][j][k] = 0
+                        elif d[i][j][k] == d_max:
+                                f[i][j][k] = 100
 
 """
 #17. Print d and f. Do you have your expected f?
@@ -104,7 +114,7 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-
+print(f)
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
