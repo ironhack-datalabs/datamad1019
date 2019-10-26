@@ -93,6 +93,16 @@ print(d)
 print(da)
 d3=np.where(d==d_max,2,np.where(d==d_min,0,1))
 print(d3)
+
+For 
+if rnd > 50:
+        temp.append(a)
+    else:
+        temp.append(b)
+    if rnd == 0:
+         break
+
+
 """
 #17. Print d and f. Do you have your expected f?
 For instance, if your d is:
