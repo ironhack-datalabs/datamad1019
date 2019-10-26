@@ -7,8 +7,8 @@ import numpy as np
 #2. Print the NUMPY version and the configuration.
 print("\nNUMPY VERSION:")
 print(np.version.version) # print(np.__version__)
-print("\nNUMPY CONFIGURATION:")
-print(np.show_config())
+# print("\nNUMPY CONFIGURATION:")
+# print(np.show_config())
 
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
@@ -229,5 +229,19 @@ print(weird_mul(A, B) == AB)
 
 print("\nThinkful - Logic Drills: Red and bumpy:")
 
+def color_probability(color, texture):
+    if texture == "smooth":
+        return "0.33"
+    elif texture == "bumpy":
+        if color == "red":
+            return(str(4/7)[0:4])
+        if color == "yellow":
+            return(str(2/7)[0:4])
+        if color == "green":
+            return(str(1/7)[0:4])
+
+print(color_probability("yellow", "bumpy"))
+print(color_probability("red", "bumpy"))
+print(color_probability("green", "smooth"))
 
 
