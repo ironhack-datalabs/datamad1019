@@ -94,6 +94,7 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
+
 d_min = np.min(d)
 d_mean = np.mean(d)
 d_max = np.max(d)
@@ -111,6 +112,23 @@ for u, v in enumerate(d):
                         else:
                                 f[u,w,y]=100
 print(f)
+
+'''
+#Porque esto no me funciona?
+for z in np.nditer(d):
+        if d_min < z < d_mean:
+                f[z]=25
+        elif d_mean < z < d_max:
+                f[z]=75
+        elif z == d_mean:
+                f[z]=50
+        elif z== d_min:
+                f[z]=0
+        else:
+                f[z]=100
+print(f)
+'''
+
 '''
 lst=[]
 for z in np.nditer(d):
@@ -118,7 +136,7 @@ for z in np.nditer(d):
                 lst.append(25)
         elif d_mean < z < d_max:
                 lst.append(75)
-        elif zip == d_mean:
+        elif z == d_mean:
                 lst.append(50)
         elif z== d_min:
                 lst.append(0)
