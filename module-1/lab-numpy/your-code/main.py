@@ -1,53 +1,51 @@
-#1. Import the NUMPY package under the name np.
+# lab-numpy
 
+#1. Import the NUMPY package under the name np.
 import numpy as np
 
+
 #2. Print the NUMPY version and the configuration.
-print("Print the NUMPY version and the configuration")
-
-# Versión:
+print("\nNUMPY VERSION:")
 print(np.version.version) # print(np.__version__)
+print("\nNUMPY CONFIGURATION:")
+print(np.show_config())
 
-# Configuración:
-# print(np.show_config())
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. 
 # How many ways can you find?
-
 a = np.random.random((2,3,5))
+a2 = np.random.rand(2,3,5)
+a3 = np.random.randint(0, 2, (2,3,5)) # for random integers
 
-'''
-Me falta el challenge!
-'''
 
 #4. Print a.
-
-print("Print a:")
+print("\nPRINT a:")
 print(a)
+
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
-
 b = np.ones((5,2,3))
 
-#6. Print b.
 
-print("Print b:")
+#6. Print b.
+print("\nPRINT b:")
 print(b)
 
-#7. Do a and b have the same size? How do you prove that in Python code?
 
-print("Do a and b have the same size?")
+#7. Do a and b have the same size? How do you prove that in Python code?
+print("\nDO a AND b HAVE THE SAME SIZE?")
+print(a.size == b.size) # They have the same number of elements in total.
 # print(a.size)
 # print(b.size)
-print(a.size == b.size) # They have the same number of elements in total.
+
 
 #8. Are you able to add a and b? Why or why not?
-
 # No. It's not possible to add arrays with different shape.
 # print(a + b)
 # ValueError: operands could not be broadcast together with shapes (2,3,5) (5,2,3)
+
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). 
 # Assign the transposed array to varialbe "c".
@@ -57,54 +55,51 @@ c = b.T
 # print(b.shape) # (5, 2, 3)
 # print(a.shape) # (2, 3, 5)
 # print(c.shape) # (3, 2, 5)
-# print(a.shape==c.shape) # False
 # Hago un reshape sobre c para que tenga = shape que a:
 c = np.reshape(c,a.shape)
 # print(c.shape) # (2, 3, 5)
 
 # Opción 2: Directamente con transpose:
-c = np.transpose(b, axes=[1,2,0]) # Con axes puedo indicar en qué orden quiero las dimensiones de b
+c = np.transpose(b, axes=[1,2,0]) # Con axes puedo ordenar las dimensiones de b
 # print(c.shape) # (2, 3, 5)
 
-#10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
 
+#10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
 d = a + c
 # It works because now a and c have the same shape.
 
-#11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
-print("Print a and d:")
-print("This is a:")
+#11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
+print("\nPRINT a:")
 print(a)
-print("This is d:")
+print("\nPRINT d:")
 print(d)
 # d = a + c
-# c es un array cuyos elementos son todos 1. Al sumar c+a, se ha sumado 1 a todos los elementos de a.
+# All elements inside array c equal 1. When we add c to a, we are adding 1 to each element inside a.
+
 
 #12. Multiply a and c. Assign the result to e.
-
 e = a * c
 
+
 #13. Does e equal to a? Why or why not?
-
-print("Does e equal to a?")
-
-# print(a)
-# print(e)
-print(a==e) # Todos sus elementos son iguales.
+print("\nDOES e EQUAL TO a?")
+print(a==e) # All elements are identical
 # print(np.equal(a,e))
+# All elements inside array c equal 1. When we do c*a, we are multiplying 1 to each element inside a.
+
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
-
 d_max = np.max(d)
 d_min = np.min(d)
 d_mean = np.mean(d)
 
-#15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
+#15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 f = np.empty(np.shape(d))
 # print(f) # No está vacía porque con este comando lo que estamos haciendo es reservar un espacio en
-#  la memoria RAM
+#  la memoria RAM para este array
+
 
 """
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, 
@@ -116,7 +111,6 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
-
 for k in range(f.shape[0]):
         for j in range(f.shape[1]):
                 for i in range(f.shape[2]):
@@ -153,10 +147,9 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
 
-print("Print d and f:")
-print("This is d:")
+print("\nPRINT d:")
 print(d)
-print("This is f:")
+print("\nPRINT f:")
 print(f)
 
 
@@ -172,7 +165,6 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
-
 f = f.astype(str)
 
 for k in range(f.shape[0]):
@@ -189,5 +181,5 @@ for k in range(f.shape[0]):
                         if d[k,j,i] == d_max:
                                 f[k,j,i] = "E"
 
-print("This is my new f:")
+print("\nPRINT new f:")
 print(f)
