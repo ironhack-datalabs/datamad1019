@@ -88,9 +88,11 @@ Note: you don't have to use Numpy in this question.
 
 g=np.ones((2,3,5))
 
-np.where(int(d)=d_max,100,np.where(int(d)=d_min,0,np.where(int(d)<d_min,25,50)))
+da=np.array(d)
 print(d)
-
+print(da)
+d3=np.where(d==d_max,2,np.where(d==d_min,0,1))
+print(d3)
 """
 #17. Print d and f. Do you have your expected f?
 For instance, if your d is:
