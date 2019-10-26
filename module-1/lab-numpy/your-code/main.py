@@ -73,8 +73,6 @@ print("#15\n Max {}, Min {}, Mean {}".format(d_max, d_min, d_mean))
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
 f = np.empty((2,3,5))
-print(f)
-
 
 """
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
@@ -87,23 +85,27 @@ Note: you don't have to use Numpy in this question.
 """
 print("#16\n")
 
-lst = []
 lst2 = []
-[lst.append(value3) for value in d for value2 in value for value3 in value2]               
-for e in lst:
-        if (e > d_min) & (e < d_mean):
-                e = 25
-                lst2.append(e)
-        elif (e > d_mean) & (e < d_max):
-                e = 50
-                lst2.append(e)
-        else:
-                e = 75
-                lst2.append(e)
-f = np.concatenate(lst, axis=0)
-print(f)
-
-
+for value in d:
+        for value2 in value: 
+                for e in value2:               
+                        if (e > d_min) & (e < d_mean):
+                                e = 25
+                                lst2.append(e)
+                        elif (e > d_mean) & (e < d_max):
+                                e = 75
+                                lst2.append(e)
+                        elif e == d_max:
+                                e = 100
+                                lst2.append(e)
+                        elif e == d_min:
+                                e = 0
+                                lst2.append(e)
+                        elif e == d_mean:
+                                e = 50
+                                lst2.append(e)
+lst2 = np.asarray(lst2)
+f = lst2.reshape((2,3,5))
 
 """
 #17. Print d and f. Do you have your expected f?
@@ -125,7 +127,7 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-
+print("#17 d:\n{}\n f:\n{}".format(d, f))
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
@@ -139,3 +141,27 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+print("#18")
+lst2 = []
+for value in d:
+        for value2 in value: 
+                for e in value2:               
+                        if (e > d_min) & (e < d_mean):
+                                e = "B"
+                                lst2.append(e)
+                        elif (e > d_mean) & (e < d_max):
+                                e = "C"
+                                lst2.append(e)
+                        elif e == d_max:
+                                e = "E"
+                                lst2.append(e)
+                        elif e == d_min:
+                                e = "A"
+                                lst2.append(e)
+                        elif e == d_mean:
+                                e = "D"
+                                lst2.append(e)
+lst2 = np.asarray(lst2)
+f = lst2.reshape((2,3,5))
+
+print(f)
