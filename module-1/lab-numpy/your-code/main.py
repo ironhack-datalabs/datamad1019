@@ -4,54 +4,66 @@ print("Ejercicio 1\n")
 import numpy as np
 
 #2. Print the NUMPY version and the configuration.
+
 print("Ejercicio 2\n")
 print(np.version.version)
-
+print(np.show_config())
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
+
 print("Ejercicio 3\n")
 a = np.random.random(30).reshape(2,3,5)
+#np.random.rand(2,3,5)
+#np.random.randint(2,3,5)
 
 #4. Print a.
+
 print("Ejercicio 4\n")
 print(a)
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
+
 print("Ejercicio 5\n")
 b = np.ones((5,2,3))
 
 #6. Print b.
+
 print("Ejercicio 6\n")
 print(b)
 
 #7. Do a and b have the same size? How do you prove that in Python code?
+
 print("Ejercicio 7\n")
 print(a.size == b.size)
 
 #8. Are you able to add a and b? Why or why not?
+
 print("Ejercicio 8\n")
 #np.add(a,b) 
-print("No se pueden sumar, ya que tienen distintos tamaños")
+print("No se pueden sumar, ya que tienen distintas dimensiones")
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
+
 print("Ejercicio 9\n")
 c = b.T
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
-print("Ejercicio 10\n")
-c = c.reshape(2,3,5)
-d = np.add(a,c)
 
+print("Ejercicio 10\n")
+c = c.reshape(2,3,5) #al ser 3 dimensiones hay varias formas traspuestas posibles.
+d = np.add(a,c)
+print("Las dimensiones de ambas matrices ahora son iguales")
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
+
 print("Ejercicio 11\n")
 print(a)
-
 print(d)
-
+print("El array d es la suma de la a con una matriz de unos, luego a todos sus elementos se les suma 1")
 
 #12. Multiply a and c. Assign the result to e.
+
 print("Ejercicio 12\n")
 e = np.multiply(a,c)
 
@@ -99,27 +111,26 @@ print(valores)
 
 value_list = []
 for values in valores:
-        if (d_min > values) and (values < d_mean):
-                values = 25
+        
+        if values == d_min:
+                values = 0
                 value_list.append(values)
-        elif (d_mean > values) and (values < d_max):
-                values = 75
+        elif (values > d_min) and (values < d_mean):
+                values = 25
                 value_list.append(values)
         elif  values == d_mean:
                 values = 50
                 value_list.append(values)
-        elif values == d_min:
-                values = 0
+        elif (values > d_mean) and (values < d_max):
+                values = 75
                 value_list.append(values)
-        elif values > d_max:
+        elif values == d_max:
                 values = 100
                 value_list.append(values)
 
-
-print(value_list)       
-
-
-
+        
+f = np.array(value_list).reshape(2,3,5)
+ 
 """
 #17. Print d and f. Do you have your expected f?
 For instance, if your d is:
@@ -140,7 +151,10 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
+print("Ejercio 17\n")
 
+print(d)
+print(f)
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
@@ -154,3 +168,28 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+print("Ejercicio 18\n")
+
+value_list = []
+for values in valores:
+        
+        if values == d_min:
+                values = "A"
+                value_list.append(values)
+        elif (values > d_min) and (values < d_mean):
+                values = "B"
+                value_list.append(values)
+        elif  values == d_mean:
+                values = "C"
+                value_list.append(values)
+        elif (values > d_mean) and (values < d_max):
+                values = "D"
+                value_list.append(values)
+        elif values == d_max:
+                values = "E"
+                value_list.append(values)
+
+        
+g = np.array(value_list).reshape(2,3,5)
+
+print(g)
