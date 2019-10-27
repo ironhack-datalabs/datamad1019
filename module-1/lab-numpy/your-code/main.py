@@ -92,10 +92,10 @@ print("Ejercicio 16\n")
 valores = []
 for uno in d:
         for dos in uno:
-                valores.append(dos)
+                for tres in dos:
+                        valores.append(tres)
 
-
-
+print(valores)
 
 value_list = []
 for values in valores:
@@ -116,7 +116,7 @@ for values in valores:
                 value_list.append(values)
 
 
-        
+print(value_list)       
 
 
 
