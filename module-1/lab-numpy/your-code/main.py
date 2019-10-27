@@ -42,14 +42,11 @@ else:
 
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
-c=b.T
+c=np.transpose(b,(1,2,0))
 print(c)
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
-#for a+c
-#Can't add a+c because they have different shape, so I proceed to reshape c to (2,3,5)
-
-c=c.reshape((2,3,5))
+a+c
 
 d=a+c
 
@@ -99,18 +96,24 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
-for x in range(2):
-    for y in range(3):
-        for z in range(5):
-            if d[x,y,z]<d_mean and d[x,y,z]>d_min:
+
+print(len(d))
+for x in range(len(d)):
+    for y in range(len(d[x])):
+        for z in range(len(d[x][y])):
+            if d_min<d[x,y,z]<d_mean:
                 f[x,y,z]=25
-            elif d[x,y,z]>d_mean and d[x,y,z]<d_max:
+            elif d_max>d[x,y,z]>d_mean:
                 f[x,y,z]=75
-            elif d[x,y,z]==d_min:
+            elif d[x,y,z]==d_mean:
+                f[x,y,z]=50
+            elif d_min==d[x,y,z]:
                 f[x,y,z]=0
             else:
                 f[x,y,z]=100
 print(f)
+
+print(d)
 
 
 
@@ -134,17 +137,7 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-for x in range(2):
-    for y in range(3):
-        for z in range(5):
-            if d[x,y,z]<d_mean and d[x,y,z]>d_min:
-                f[x,y,z]=25
-            elif d[x,y,z]>d_mean and d[x,y,z]<d_max:
-                f[x,y,z]=75
-            elif d[x,y,z]==d_min:
-                f[x,y,z]=0
-            else:
-                f[x,y,z]=100
+
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
@@ -158,3 +151,20 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+f=f.astype('str')
+print(f)
+for x in range(len(f)):
+    for y in range(len(f[x])):
+        for z in range(len(f[x][y])):
+            if f[x,y,z]=='25.0':
+                f[x,y,z]='D'
+            elif f[x,y,z]=='75.0':
+                f[x,y,z]='B'
+            elif f[x,y,z]=='50.0':
+                f[x,y,z]='C'
+            elif f[x,y,z]=='0.0':
+                f[x,y,z]='E'
+            else:
+                f[x,y,z]='A'
+
+print(f)
