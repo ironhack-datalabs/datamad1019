@@ -1,9 +1,14 @@
 
 #1. Import the NUMPY package under the name np.
+
+print("#1")
+
 import numpy as np
 
 #2. Print the NUMPY version and the configuration.
 # Two methods to obtain version
+
+print("#2")
 
 print(np.__version__)
 
@@ -15,14 +20,19 @@ print(np.show_config())
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
 
+print("#3")
+
 a=np.random.random((2,3,5))
 
 #4. Print a.
+print("#4")
+
 print(a)
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
 
+print("#5")
 
 b=np.ones((5,2,3))
 
@@ -110,9 +120,21 @@ print(d_max)
 print(d_min)
 print(d_mean)
 
+for i in range(len(d)):
+    for j in range(len(d[0])):
+        for k in range(len(d[0][0])):
+            d_value = d[i, j, k]
 
-
-
+            if (d_value > d_min) and (d_value < d_mean):
+                f[i, j, k] = 25
+            elif (d_value > d_mean) and (d_value< d_max):
+                f[i, j, k] = 75
+            elif d_value == d_mean:
+                f [i, j, k] = 50
+            elif d_value == d_min:
+                f[i, j, k] = 0
+            elif d_value == d_max:
+                f[i, j, k] = 100
 
 #17. Print d and f. Do you have your expected f?
 '''
@@ -136,9 +158,11 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
 
 '''
 print("#17")
+print(d)
+print(f)
 
-'''
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
+'''
 ("A", "B", "C", "D", and "E") to label the array elements? You are expecting the result to be:
 array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'D',  'D',  'B',  'B',  'B'],
@@ -148,5 +172,24 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'D',  'D',  'D',  'D',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
-print("#18")
 '''
+
+print("#18")
+
+f = f.tolist()
+
+for i in range(len(d)):
+    for j in range(len(d[0])):
+        for k in range(len(d[0][0])):
+            d_value = d[i, j, k]
+
+            if (d_value > d_min) and (d_value < d_mean):
+                f[i][j][k]  = 'B' # f is a list not a numpy array thus you need index to call elements
+            elif (d_value > d_mean) and (d_value< d_max):
+                f[i][j][k] = 'D'
+            elif d_value == d_mean:
+                f[i][j][k] = 'C'
+            elif d_value == d_min:
+                f[i][j][k] = 'A'
+            elif d_value == d_max:
+                f[i][j][k] = 'E'
