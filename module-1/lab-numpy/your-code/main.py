@@ -1,8 +1,3 @@
-print('probando')
-
-print(2+2)
-
-
 
 #1. Import the NUMPY package under the name np.
 import numpy as np
@@ -96,8 +91,7 @@ print(d_mean)
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 print("#15")
-
-f=np.empty((2,3,5))
+f=np.zeros((2,3,5))
 print(f)
 
 
@@ -110,14 +104,18 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 '''
-
 print("#16")
+
+print(d_max)
+print(d_min)
+print(d_mean)
 
 
 
 
 
 #17. Print d and f. Do you have your expected f?
+'''
 For instance, if your d is:
 array([[[1.85836099, 1.67064465, 1.62576044, 1.40243961, 1.88454931],
         [1.75354326, 1.69403643, 1.36729252, 1.61415071, 1.12104981],
@@ -135,9 +133,11 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
        [[ 25.,  25.,  25.,  25., 100.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
+
+'''
 print("#17")
 
-
+'''
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
 ("A", "B", "C", "D", and "E") to label the array elements? You are expecting the result to be:
 array([[[ 'D',  'D',  'D',  'B',  'D'],
@@ -149,3 +149,4 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 print("#18")
+'''
