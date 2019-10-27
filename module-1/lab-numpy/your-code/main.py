@@ -3,76 +3,100 @@
 import numpy as np
 
 #2. Print the NUMPY version and the configuration.
-print("=>ej 2:")
-print(np.__version__)
-print(np.show_config())
+print("===================")
+print("=>ej 2: Show your NUMPY version and configuration")
+print(np.__version__)           # IMP
+print(np.show_config())         # IMP
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
+print("===================")
 print("=> ej 3:")
-a = np.random.random((2,3,5))
+print("con np.random.random: ")
+a = np.random.random((2,3,5))   # IMP
+print("con np.random.rand(a,b,c) ; a,b,c dimensiones")
+a2=np.random.rand(2,3,5)
+print("con random.random(dimensiones) tenemos","\n",a,"\n","\n","con random.rand(dimensiones): ","\n",a2)
+print("Mil maneras de generar random arrays aquí:","\n", "https://realpython.com/python-random/")
 
 #4. Print a.
+print("===================")
 print("=> ej 4:")
 print(a)
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
-print("=> ej 5:")
+print("===================")
+print("=> ej 5: Crear la matriz unitaria de 'dimensiones' 5x2x3")
 b=np.ones((5,2,3))
 
-# TA: tengo dudas, creo que por pensar demasiado.
-# el 3 dimensional son 3 corchetes y  punto.
-# el 5x2x3 no sé si se refiere a 5 columnas... o 5 filas... 
-# cual es el orden lógico en programación?? primero columnas... luego... filas? luego espacio? 
+# TA: tengo dudas, creo que por pensar demasiado, espero no parecer prepotente, pero es algo que quiero entender:
+
+# El 3 dimensional se refiere a que hay 3 corchetes uno dentro de otro y punto, y a eso lo llamáis
+# dimensión y ya está, ¿no?. Y es un convenio homogéneo dentro de los que trabajan con numpy, llamar dimensión
+# al número de listas dentro de listas
+
+# Hasta aquí se puede responder SÍ, NO. Y yo ya estoy satisfecho, pero si la respuesta es SÍ, significa que la 
+# definición de "dimensión" es un convenio del sector que no tiene por qué relacionarse con la definición
+#  matemática (y al fin y al cabo tratamos con variables que parecen explicarse como relaciones matrices/vectores)
+
+# O sea, no tengo nada en contra de decirle "dimensión" a la cantidad de corchetes dentro de corchetes
+
 
 #6. Print b.
+print("===================")
 print("=> ej 6: ")
 print(b)
 
 #7. Do a and b have the same size? How do you prove that in Python code?
-print("=> ej 7: ")
+print("===================")
+print("=> ej 7: Comparar tamaños usando if a.size == b.size:")
 if a.size == b.size:
         print(True)
 else:
         print(False)
 
 #8. Are you able to add a and b? Why or why not?
+print("===================")
 print("8. Are you able to add a and b? Why or why not?")
 print("si tienen la misma estructura de matriz sí se pueden sumar.")
 print("c=np.add(a,b) # esto va a dar error.")
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
-print("=> ej 9")
+print("===================")
+print("=> ej 9, trasponer usando np.traspose(la matriz que sea)")
 c=np.transpose(b)
 print(c)
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
-print("=> ej 10")
-cbuena=np.reshape(c,(2,3,5))
+print("===================")
+print("=> ej 10: sumar 'a' y 'c'. He tenido que usar np.reshape(c,(2,3,5))")
+cbuena=np.reshape(c,(2,3,5))    # IMP
 print(cbuena)
 
-d=np.add(a,cbuena)
+d=np.add(a,cbuena)      # IMP
 # También podría haber hecho, como si fueran variables de python 
 # d=a+cbuena
+print("===================")
 print(d)
 
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
-print("")
+print("===================")
+print("Ej 11. Comparar matrices. Lo hice anteriormente con un booleano")
 print(a)
 print(d)
 
 # con esto puedo comparar arrays
 
-print("\n"+"==============="+"\n"+"ej11: comparar")
+print("\n"+"==============="+"\n"+"ej11: comparar usando np.array_equal(matiz1,matriz2)")
 np.array_equal(a,d)
 print(np.array_equal(a,d))     
 
 
 
 #12. Multiply a and c. Assign the result to e.
-print("\n"+"==============="+"\n"+"ej12: multiplicar")
+print("\n"+"==============="+"\n"+"ej12: multiplicar con np.multiply")
 
 e=np.multiply(a,cbuena)
 print(e)        
@@ -256,8 +280,7 @@ print(" ``````````````````7¶¶¶§1↓```↓¶1↕````↓1``````````````` ")
 print(" ``````````````````1↓↓↓````````1↓`````7↕`````````````` ")
 print(" ``````````````````↕11↕`````↓``11↓7↓77↕``````````````` ")
 print(" ``````````````````````↓↓↓↓↓↓↓```````````````````````` ") 
-print(" Stewee dice que es una vergüenza hacer tantos prints, debería")
-print(" haber hecho un str de todo el texto e ir dividiéndolo en una función.")
-print(" Problema del Vargas del futuro")
-
+print(" Me hubiera gustado meter todo este texto en una variable str e ir descomponiéndola en intervalos de 55")
+print(" caracteres dentro de una comprehension list para no tener que printear tanto. Le he dedicado unos minutos")
+print(" y no lo conseguí.")
             
