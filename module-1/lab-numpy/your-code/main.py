@@ -145,19 +145,37 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+
+print("--------------------------------------------------------------------------------------")
 g = np.empty([2,3,5])
+print(d)
 for i in range(len(d)):
         for j in range(len(d[i])):
                 for k in range(len(d[i][j])):
                         if d[i][j][k] > d_min and d[i][j][k] < d_mean:
-                                g[i][j][k] = str('a')
+                                
+                                g[i][j][k]= str("25")
+                                g[i][j][k] = "A"
+                                print(g[i][j][k])
+                                
+                                
                         elif d[i][j][k]> d_mean and d[i][j][k] < d_max:
-                                g[i][j][k] = str('b') 
+                                g[i][j][k] = str("75")
+                                
+                                
+                 
                         elif d[i][j][k] == d_mean:
-                                g[i][j][k] = str('c')
+                                g[i][j][k] = str("50")
+                                
+                
+        
                         elif d[i][j][k] <= d_min:
-                                g[i][j][k] = str('d')
+                                g[i][j][k] = str("0")
+                                
+                
                         elif a[i][j][k] == d_max:
-                                g[i][j][k] = str('e') 
+                                g[i][j][k] = str("100")
+                                
+               
 
 print(g)
