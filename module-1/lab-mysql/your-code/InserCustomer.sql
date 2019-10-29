@@ -1,0 +1,3 @@
+INSERT INTO `mydb`.`Customers` (`ID`, `Customer ID`, `name`, `phone`, `email`, `address`, `city`, `state/province`, `zip/postal code`) VALUES ('0', '10001', 'Pablo Picasso', '636176382', '-', 'Paseo de la Chopera, 14', 'Madrid', 'Madrid', '28045');
+INSERT INTO `mydb`.`Customers` (`ID`, `Customer ID`, `name`, `phone`, `email`, `address`, `city`, `state/province`, `zip/postal code`) VALUES ('1', '20001', 'Abraham Lincoln', '3059077086', '-', '120 SW 8th St', 'Miami', 'Florida', '33130');
+INSERT INTO `mydb`.`Customers` (`ID`, `Customer ID`, `name`, `phone`, `email`, `address`, `city`, `state/province`, `zip/postal code`) VALUES ('2', '30001', 'Napoléon Bonaparte', '179754000', '-', '40 Rue du Colisée', 'Paris', 'Île-de-France', '75008');
