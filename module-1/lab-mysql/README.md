@@ -1,7 +1,7 @@
 ![Ironhack logo](https://i.imgur.com/1QgrNNw.png)
 
 # Lab | MySQL
-
+modify
 ## Introduction
 
 As a data expert you work at a car dealership company which sells new cars of various brands and models. Your company is small and new but it has branches in several countries. Since the establishment of the company your colleagues have sold several cars to the customers. Now your boss realized your company imperatively needs a database to keep the records about the cars, salespersons, customers, and invoices. Your boss trusts you very much so he assigned you the challenge to design, create, and manage the database.
