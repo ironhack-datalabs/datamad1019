@@ -15,9 +15,12 @@ SELECT
     INNER JOIN publishers AS p ON t.pub_id=p.pub_id
     GROUP BY t.pub_id, au.au_id
 
-
+# Challenge 3
 SELECT
 	au.au_id AS `AUTHOR ID`, au.au_lname AS `LAST NAME`, au.au_fname AS `FIRST NAME`, SUM(s.qty) AS `TOTAL`
     FROM authors AS au
     INNER JOIN titleauthor AS ta ON au.au_id = ta.au_id
     INNER JOIN sales AS s ON ta.title_id = s.title_id
+	GROUP BY ta.au_id, au.au_id
+    ORDER BY `TOTAL` DESC
+    LIMIT 3
