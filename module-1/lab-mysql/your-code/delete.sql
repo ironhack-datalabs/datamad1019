@@ -1,0 +1,1 @@
+DELETE FROM mydb.Car WHERE idCar=4;
