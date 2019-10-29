@@ -119,11 +119,11 @@ VALUES
 (5,'DAM41UDN3CHU2WVF6','Volvo','V60 Cross Country',2019,'Gray')
 ;
 INSERT INTO Customers
-(ID,Customer_ID,Name,Phone,Email,Address,City,State_Province,Country,Postal)
+(ID,Customer_ID,Name,Phone,Address,City,State_Province,Country,Postal)
 VALUES
-(0,10001,'Pablo Picasso',34636176382,'Paseo de la Chopera, 14','Madrid','Madrid','Spain',28045),
-(1,20001,'Abraham Lincoln',13059077086,'120 SW 8th St','Miami','Florida','United States',33130),
-(2,30001,'Napoleon Bonaparte',33179754000,'40 Rue du Colisée','Paris','Île-de-France','France',75008)
+(0,10001,'Pablo Picasso','636176382','Paseo de la Chopera 14','Madrid','Madrid','Spain',28045),
+(1,20001,'Abraham Lincoln','3059077086','120 SW 8th St','Miami','Florida','United States',33130),
+(2,30001,'Napoleon Bonaparte','179754000','40 Rue du Colisée','Paris','Île-de-France','France',75008)
 ;
 INSERT INTO Invoices
 (ID,Invoice_Number,Date,Car,Customer,Staff)
