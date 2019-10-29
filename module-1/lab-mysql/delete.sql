@@ -1,0 +1,1 @@
+UPDATE ejerciciosql.cars SET vin = NULL WHERE (ID = '5');
