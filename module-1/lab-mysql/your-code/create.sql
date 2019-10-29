@@ -15,10 +15,10 @@ CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Salespersons`
+-- Table `mydb`.`Customers`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Salespersons` (
-  `idSalespersons` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `mydb`.`Customers` (
+  `idCustomers` INT NOT NULL,
   `Name` VARCHAR(45) NULL,
   `phonenumber` INT NULL,
   `address` VARCHAR(45) NULL,
@@ -26,18 +26,18 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Salespersons` (
   `state` VARCHAR(45) NULL,
   `country` VARCHAR(45) NULL,
   `zip` INT NULL,
-  PRIMARY KEY (`idSalespersons`))
+  PRIMARY KEY (`idCustomers`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Customers`
+-- Table `mydb`.`Salesperson`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Customers` (
-  `idCustomers` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `mydb`.`Salesperson` (
+  `idSalespersons` INT NOT NULL,
   `name` VARCHAR(45) NULL,
   `store` VARCHAR(45) NULL,
-  PRIMARY KEY (`idCustomers`))
+  PRIMARY KEY (`idSalespersons`))
 ENGINE = InnoDB;
 
 
@@ -56,12 +56,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Invoices` (
   INDEX `fk_Invoices_Customers1_idx` (`Customers_idCustomers` ASC) VISIBLE,
   CONSTRAINT `fk_Invoices_Salespersons1`
     FOREIGN KEY (`Salespersons_idSalespersons`)
-    REFERENCES `mydb`.`Salespersons` (`idSalespersons`)
+    REFERENCES `mydb`.`Customers` (`idCustomers`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Invoices_Customers1`
     FOREIGN KEY (`Customers_idCustomers`)
-    REFERENCES `mydb`.`Customers` (`idCustomers`)
+    REFERENCES `mydb`.`Salesperson` (`idSalespersons`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -72,7 +72,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Cars` (
   `idcars` INT NOT NULL,
-  `VIN` INT NULL,
+  `VIN` VARCHAR(45) NULL,
   `Manufacter` VARCHAR(45) NULL,
   `Model` VARCHAR(45) NULL,
   `Year` INT NULL,
