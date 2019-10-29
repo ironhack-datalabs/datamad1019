@@ -1,95 +1,31 @@
--- MySQL Workbench Forward Engineering
+#tabla cars
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+INSERT INTO `lab-mysql`.`Cars` (`idCars`, `VINS`, `manufacturer`, `model`, `year`, `color`) VALUES ('0', '3K096I98581DHSNUP', 'Volkswagen', 'Tiguan', '2019', 'Blue');
+INSERT INTO `lab-mysql`.`Cars` (`idCars`, `VINS`, `manufacturer`, `model`, `year`, `color`) VALUES ('1', 'ZM8G7BEUQZ97IH46V', 'Peugeot', 'Rifter', '2019', 'Red');
+INSERT INTO `lab-mysql`.`Cars` (`idCars`, `VINS`, `manufacturer`, `model`, `year`, `color`) VALUES ('2', 'RKXVNNIHLVVZOUB4M', 'Ford', 'Fusion', '2018', 'White');
+INSERT INTO `lab-mysql`.`Cars` (`idCars`, `VINS`, `manufacturer`, `model`, `year`, `color`) VALUES ('3', 'HKNDGS7CU31E9Z7JW', 'Toyota', 'RAV4', '2018', 'Silver');
+INSERT INTO `lab-mysql`.`Cars` (`idCars`, `VINS`, `manufacturer`, `model`, `year`, `color`) VALUES ('4', 'DAM41UDN3CHU2WVF6', 'Volvo', 'V60', '2019', 'Gray');
+INSERT INTO `lab-mysql`.`Cars` (`idCars`, `VINS`, `manufacturer`, `model`, `year`, `color`) VALUES ('5', 'DAM41UDN3CHU2WVF6', 'Volvo', 'V60 Cross Country', '2019', 'Gray');
 
--- -----------------------------------------------------
--- Schema lab-mysql
--- -----------------------------------------------------
+#tabla customers
 
--- -----------------------------------------------------
--- Schema lab-mysql
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `lab-mysql` DEFAULT CHARACTER SET utf8 ;
-USE `lab-mysql` ;
+INSERT INTO `lab-mysql`.`Customers` (`idCustomers`, `name`, `phone number`, `email`, `address`, `city`, `state/province`, `country`, `zip/postal code`) VALUES ('10001', 'Pablo Picasso', '+34 636 17 63 82', '-', 'Paseo de la Chopera, 14', 'Madrid', 'Madrid', 'Spain', '28045');
+INSERT INTO `lab-mysql`.`Customers` (`idCustomers`, `name`, `phone number`, `email`, `address`, `city`, `state/province`, `country`, `zip/postal code`) VALUES ('20001', 'Abraham Lincoln', '+1 305 907 7086', '-', '120 SW 8th St', 'Miami', 'Florida', 'United States', '33130');
+INSERT INTO `lab-mysql`.`Customers` (`idCustomers`, `name`, `phone number`, `email`, `address`, `city`, `state/province`, `country`, `zip/postal code`) VALUES ('30001', 'Napoléon Bonaparte', '+33 1 79 75 40 00', '-', '40 Rue du Colisée', 'Paris', 'Île-de-France', 'France', '75008');
 
--- -----------------------------------------------------
--- Table `lab-mysql`.`Customers`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lab-mysql`.`Customers` (
-  `idCustomers` INT NOT NULL,
-  `name` VARCHAR(45) NULL,
-  `phone number` INT(11) NULL,
-  `email` VARCHAR(45) NULL,
-  `address` VARCHAR(45) NULL,
-  `city` VARCHAR(45) NULL,
-  `state/province` VARCHAR(45) NULL,
-  `country` VARCHAR(45) NULL,
-  `zip/postal code` INT(11) NULL,
-  PRIMARY KEY (`idCustomers`))
-ENGINE = InnoDB;
+#salespersons
 
+INSERT INTO `lab-mysql`.`Salespersons` (`idSalespersons`, `name`, `store`) VALUES ('00001', 'Petey Cruiser', 'Madrid');
+INSERT INTO `lab-mysql`.`Salespersons` (`idSalespersons`, `name`, `store`) VALUES ('00002', 'Anna Sthesia', 'Barcelona');
+INSERT INTO `lab-mysql`.`Salespersons` (`idSalespersons`, `name`, `store`) VALUES ('00003', 'Paul Molive', 'Berlin');
+INSERT INTO `lab-mysql`.`Salespersons` (`idSalespersons`, `name`, `store`) VALUES ('00004', 'Gail Forcewind', 'Paris');
+INSERT INTO `lab-mysql`.`Salespersons` (`idSalespersons`, `name`, `store`) VALUES ('00005', 'Paige Turner', 'Mimia');
+INSERT INTO `lab-mysql`.`Salespersons` (`idSalespersons`, `name`, `store`) VALUES ('00006', 'Bob Frapples', 'Mexico City');
+INSERT INTO `lab-mysql`.`Salespersons` (`idSalespersons`, `name`, `store`) VALUES ('00007', 'Walter Melon', 'Amsterdam');
+INSERT INTO `lab-mysql`.`Salespersons` (`idSalespersons`, `name`, `store`) VALUES ('00008', 'Shonda Leer', 'São Paulo');
 
--- -----------------------------------------------------
--- Table `lab-mysql`.`Cars`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lab-mysql`.`Cars` (
-  `idCars` INT NOT NULL,
-  `VINS` VARCHAR(45) NULL,
-  `manufacturer` VARCHAR(45) NULL,
-  `model` VARCHAR(45) NULL,
-  `year` INT(11) NULL,
-  `color` VARCHAR(45) NULL,
-  PRIMARY KEY (`idCars`))
-ENGINE = InnoDB;
+#invoices
 
-
--- -----------------------------------------------------
--- Table `lab-mysql`.`Salespersons`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lab-mysql`.`Salespersons` (
-  `idSalespersons` INT NOT NULL,
-  `name` VARCHAR(45) NULL,
-  `store` VARCHAR(45) NULL,
-  PRIMARY KEY (`idSalespersons`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `lab-mysql`.`Invoice`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lab-mysql`.`Invoice` (
-  `idInvoice` INT NOT NULL,
-  `date` DATE NULL,
-  `Customers_ID` INT(11) NULL,
-  `Salespersons_ID` INT(11) NULL,
-  `Cars_ID` INT(11) NULL,
-  `Cars_idCars` INT NOT NULL,
-  `Salespersons_idSalespersons` INT NOT NULL,
-  `Customers_idCustomers` INT NOT NULL,
-  PRIMARY KEY (`idInvoice`, `Cars_idCars`, `Salespersons_idSalespersons`, `Customers_idCustomers`),
-  INDEX `fk_Invoice_Cars1_idx` (`Cars_idCars` ASC),
-  INDEX `fk_Invoice_Salespersons1_idx` (`Salespersons_idSalespersons` ASC),
-  INDEX `fk_Invoice_Customers1_idx` (`Customers_idCustomers` ASC),
-  CONSTRAINT `fk_Invoice_Cars1`
-    FOREIGN KEY (`Cars_idCars`)
-    REFERENCES `lab-mysql`.`Cars` (`idCars`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Invoice_Salespersons1`
-    FOREIGN KEY (`Salespersons_idSalespersons`)
-    REFERENCES `lab-mysql`.`Salespersons` (`idSalespersons`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Invoice_Customers1`
-    FOREIGN KEY (`Customers_idCustomers`)
-    REFERENCES `lab-mysql`.`Customers` (`idCustomers`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+INSERT INTO `lab-mysql`.`Invoice` (`idInvoice`, `date`, `Customers_ID`, `Cars_idCars`, `Salespersons_idSalespersons`) VALUES ('852399038', '2018-08-22', '1', '0', '3');
+INSERT INTO `lab-mysql`.`Invoice` (`idInvoice`, `date`, `Customers_ID`, `Cars_idCars`, `Salespersons_idSalespersons`) VALUES ('731166526', '2018-12-31', '0', '3', '5');
+INSERT INTO `lab-mysql`.`Invoice` (`idInvoice`, `date`, `Customers_ID`, `Cars_idCars`, `Salespersons_idSalespersons`) VALUES ('271135104', '2019-01-22', '2', '2', '7');
