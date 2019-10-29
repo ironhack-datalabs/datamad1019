@@ -4,7 +4,28 @@
 USE mysql workbench;
 
 
---Table: Cars
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema Lab_MySQL
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema Lab_MySQL
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `Lab_MySQL` DEFAULT CHARACTER SET latin1 ;
+USE `Lab_MySQL` ;
+
+-- -----------------------------------------------------
+-- Table `Lab_MySQL`.`Cars`
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Lab_MySQL`.`Cars` (
   `Car_ID` INT(11) NOT NULL,
   `VIN` VARCHAR(45) NOT NULL,
@@ -13,10 +34,13 @@ CREATE TABLE IF NOT EXISTS `Lab_MySQL`.`Cars` (
   `Year` INT(11) NOT NULL,
   PRIMARY KEY (`Car_ID`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1
+DEFAULT CHARACTER SET = latin1;
 
-  --Table: Customers
-  CREATE TABLE IF NOT EXISTS `Lab_MySQL`.`Customers` (
+
+-- -----------------------------------------------------
+-- Table `Lab_MySQL`.`Customers`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Lab_MySQL`.`Customers` (
   `idCustomers` INT(11) NOT NULL,
   `ID_Number` VARCHAR(45) NOT NULL,
   `Name` VARCHAR(45) NOT NULL,
@@ -29,9 +53,12 @@ DEFAULT CHARACTER SET = latin1
   `Postal` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCustomers`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1
+DEFAULT CHARACTER SET = latin1;
 
-  --Table: Sales_Persons
+
+-- -----------------------------------------------------
+-- Table `Lab_MySQL`.`Sales_Persons`
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Lab_MySQL`.`Sales_Persons` (
   `idSales_Persons` INT(11) NOT NULL,
   `Staff_ID` VARCHAR(45) NOT NULL,
@@ -39,9 +66,12 @@ CREATE TABLE IF NOT EXISTS `Lab_MySQL`.`Sales_Persons` (
   `Store` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idSales_Persons`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1
+DEFAULT CHARACTER SET = latin1;
 
-  --Table: Invoices
+
+-- -----------------------------------------------------
+-- Table `Lab_MySQL`.`Invoices`
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Lab_MySQL`.`Invoices` (
   `idInvoices` INT(11) NOT NULL,
   `Invoice_ID` INT(11) NOT NULL,
@@ -69,4 +99,9 @@ CREATE TABLE IF NOT EXISTS `Lab_MySQL`.`Invoices` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1
+DEFAULT CHARACTER SET = latin1;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
