@@ -18,13 +18,12 @@ USE `lab_mysql` ;
 -- Table `lab_mysql`.`cars`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lab_mysql`.`cars` (
-  `id` INT NOT NULL,
-  `vin` INT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `vin` VARCHAR(45) NULL,
   `manufacturer` VARCHAR(45) NULL,
   `model` VARCHAR(45) NULL,
   `year` INT NULL,
   `color` VARCHAR(45) NULL,
-  `carscol` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -33,7 +32,7 @@ ENGINE = InnoDB;
 -- Table `lab_mysql`.`customers`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lab_mysql`.`customers` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `customer_id` INT NULL,
   `name` VARCHAR(45) NULL,
   `phone` VARCHAR(45) NULL,
@@ -51,7 +50,7 @@ ENGINE = InnoDB;
 -- Table `lab_mysql`.`salespersons`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lab_mysql`.`salespersons` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `staff_id` INT NULL,
   `name` VARCHAR(45) NULL,
   `store` VARCHAR(45) NULL,
@@ -63,7 +62,7 @@ ENGINE = InnoDB;
 -- Table `lab_mysql`.`invoices`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lab_mysql`.`invoices` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `invoicescol` VARCHAR(45) NULL,
   `date` DATE NULL,
   `car` INT NOT NULL,
