@@ -15,18 +15,16 @@ CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Customers`
+-- Table `mydb`.`Cars`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Customers` (
-  `idCustomers` INT NOT NULL,
-  `Name` VARCHAR(45) NULL,
-  `phonenumber` INT NULL,
-  `address` VARCHAR(45) NULL,
-  `city` VARCHAR(45) NULL,
-  `state` VARCHAR(45) NULL,
-  `country` VARCHAR(45) NULL,
-  `zip` INT NULL,
-  PRIMARY KEY (`idCustomers`))
+CREATE TABLE IF NOT EXISTS `mydb`.`Cars` (
+  `ID` INT NOT NULL,
+  `VIN` VARCHAR(45) NULL,
+  `Manufacter` VARCHAR(45) NULL,
+  `Model` VARCHAR(45) NULL,
+  `Year` INT NULL,
+  `Color` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
 
 
@@ -34,10 +32,27 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Salesperson`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Salesperson` (
-  `idSalespersons` INT NOT NULL,
+  `ID` INT NOT NULL,
   `name` VARCHAR(45) NULL,
   `store` VARCHAR(45) NULL,
-  PRIMARY KEY (`idSalespersons`))
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Customers`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Customers` (
+  `ID` INT NOT NULL,
+  `customerid` INT NULL,
+  `Name` VARCHAR(45) NULL,
+  `phonenumber` INT NULL,
+  `address` VARCHAR(45) NULL,
+  `city` VARCHAR(45) NULL,
+  `state` VARCHAR(45) NULL,
+  `country` VARCHAR(45) NULL,
+  `zip` INT NULL,
+  PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
 
 
@@ -45,44 +60,29 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Invoices`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Invoices` (
-  `idInvoices` INT NOT NULL,
+  `ID` INT NOT NULL,
+  `invoicenumber` INT NULL,
   `date` DATETIME NULL,
-  `car` VARCHAR(45) NULL,
-  `customer` VARCHAR(45) NULL,
-  `Salespersons_idSalespersons` INT NOT NULL,
-  `Customers_idCustomers` INT NOT NULL,
-  PRIMARY KEY (`idInvoices`),
-  INDEX `fk_Invoices_Salespersons1_idx` (`Salespersons_idSalespersons` ASC) VISIBLE,
-  INDEX `fk_Invoices_Customers1_idx` (`Customers_idCustomers` ASC) VISIBLE,
-  CONSTRAINT `fk_Invoices_Salespersons1`
-    FOREIGN KEY (`Salespersons_idSalespersons`)
-    REFERENCES `mydb`.`Customers` (`idCustomers`)
+  `Cars_ID` INT NOT NULL,
+  `Customers_ID` INT NOT NULL,
+  `Salesperson_ID` INT NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `fk_Invoices_Cars_idx` (`Cars_ID` ASC) VISIBLE,
+  INDEX `fk_Invoices_Customers1_idx` (`Customers_ID` ASC) VISIBLE,
+  INDEX `fk_Invoices_Salesperson1_idx` (`Salesperson_ID` ASC) VISIBLE,
+  CONSTRAINT `fk_Invoices_Cars`
+    FOREIGN KEY (`Cars_ID`)
+    REFERENCES `mydb`.`Cars` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Invoices_Customers1`
-    FOREIGN KEY (`Customers_idCustomers`)
-    REFERENCES `mydb`.`Salesperson` (`idSalespersons`)
+    FOREIGN KEY (`Customers_ID`)
+    REFERENCES `mydb`.`Customers` (`ID`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`Cars`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Cars` (
-  `idcars` INT NOT NULL,
-  `VIN` VARCHAR(45) NULL,
-  `Manufacter` VARCHAR(45) NULL,
-  `Model` VARCHAR(45) NULL,
-  `Year` INT NULL,
-  `Color` VARCHAR(45) NULL,
-  `Invoices_idInvoices` INT NOT NULL,
-  PRIMARY KEY (`idcars`),
-  INDEX `fk_Cars_Invoices1_idx` (`Invoices_idInvoices` ASC) VISIBLE,
-  CONSTRAINT `fk_Cars_Invoices1`
-    FOREIGN KEY (`Invoices_idInvoices`)
-    REFERENCES `mydb`.`Invoices` (`idInvoices`)
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Invoices_Salesperson1`
+    FOREIGN KEY (`Salesperson_ID`)
+    REFERENCES `mydb`.`Salesperson` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
