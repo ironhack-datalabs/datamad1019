@@ -1,4 +1,4 @@
--- MySQL Workbench Forward Engineering
+- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
@@ -15,16 +15,6 @@ CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Invoices`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Invoices` (
-  `idInvoices` INT NOT NULL,
-  `Invoice Number` VARCHAR(45) NULL,
-  PRIMARY KEY (`idInvoices`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `mydb`.`Cars`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Cars` (
@@ -33,14 +23,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Cars` (
   `Manufacturer` VARCHAR(45) NULL,
   `Model` VARCHAR(45) NULL,
   `Year` INT NULL,
-  `Invoices_idInvoices` INT NOT NULL,
-  PRIMARY KEY (`idCars`),
-  INDEX `fk_Cars_Invoices1_idx` (`Invoices_idInvoices` ASC) VISIBLE,
-  CONSTRAINT `fk_Cars_Invoices1`
-    FOREIGN KEY (`Invoices_idInvoices`)
-    REFERENCES `mydb`.`Invoices` (`idInvoices`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`idCars`))
 ENGINE = InnoDB;
 
 
@@ -58,14 +41,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Customers` (
   `State/Province` VARCHAR(45) NULL,
   `Country` VARCHAR(45) NULL,
   `Postal` VARCHAR(45) NULL,
-  `Invoices_idInvoices` INT NOT NULL,
-  PRIMARY KEY (`idCustomers`),
-  INDEX `fk_Customers_Invoices1_idx` (`Invoices_idInvoices` ASC) VISIBLE,
-  CONSTRAINT `fk_Customers_Invoices1`
-    FOREIGN KEY (`Invoices_idInvoices`)
-    REFERENCES `mydb`.`Invoices` (`idInvoices`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`idCustomers`))
 ENGINE = InnoDB;
 
 
@@ -77,12 +53,37 @@ CREATE TABLE IF NOT EXISTS `mydb`.`SalesPerson` (
   `Staff ID` INT NULL,
   `Name` VARCHAR(45) NULL,
   `Store` VARCHAR(45) NULL,
-  `Invoices_idInvoices` INT NOT NULL,
-  PRIMARY KEY (`idSalesPerson`),
-  INDEX `fk_SalesPerson_Invoices1_idx` (`Invoices_idInvoices` ASC) VISIBLE,
-  CONSTRAINT `fk_SalesPerson_Invoices1`
-    FOREIGN KEY (`Invoices_idInvoices`)
-    REFERENCES `mydb`.`Invoices` (`idInvoices`)
+  PRIMARY KEY (`idSalesPerson`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Invoices`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Invoices` (
+  `idInvoices` INT NOT NULL,
+  `Invoice Number` VARCHAR(45) NULL,
+  `Date` DATE NULL,
+  `Cars_idCars` INT NOT NULL,
+  `SalesPerson_idSalesPerson` INT NOT NULL,
+  `Customers_idCustomers` INT NOT NULL,
+  PRIMARY KEY (`idInvoices`),
+  INDEX `fk_Invoices_Cars_idx` (`Cars_idCars` ASC) VISIBLE,
+  INDEX `fk_Invoices_SalesPerson1_idx` (`SalesPerson_idSalesPerson` ASC) VISIBLE,
+  INDEX `fk_Invoices_Customers1_idx` (`Customers_idCustomers` ASC) VISIBLE,
+  CONSTRAINT `fk_Invoices_Cars`
+    FOREIGN KEY (`Cars_idCars`)
+    REFERENCES `mydb`.`Cars` (`idCars`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Invoices_SalesPerson1`
+    FOREIGN KEY (`SalesPerson_idSalesPerson`)
+    REFERENCES `mydb`.`SalesPerson` (`idSalesPerson`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Invoices_Customers1`
+    FOREIGN KEY (`Customers_idCustomers`)
+    REFERENCES `mydb`.`Customers` (`idCustomers`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
