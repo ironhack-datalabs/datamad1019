@@ -1,0 +1,1 @@
+SELECT authors.au_id, authors.au_fname, authors.au_lname FROM authors LEFT JOIN title FROM Publications.titles;
