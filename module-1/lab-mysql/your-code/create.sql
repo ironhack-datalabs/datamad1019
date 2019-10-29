@@ -18,7 +18,7 @@ USE `carsDB` ;
 -- Table `carsDB`.`Cars`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `carsDB`.`Cars` (
-  `VIN` INT NOT NULL,
+  `VIN` VARCHAR(45) NOT NULL,
   `manufacturer` VARCHAR(45) NULL,
   `model` VARCHAR(45) NULL,
   `year` DATE NULL,
