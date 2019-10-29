@@ -23,4 +23,4 @@ INSERT INTO `lab_mysql`.`salesperson` (`idsalesperson`, `SID`, `name`, `store`) 
 
 INSERT INTO `lab_mysql`.`invoices` (`idinvoices`, `invoice number`, `date`, `cars_idcars`, `costumers_idcostumers`, `salesperson_idsalesperson`) VALUES ('1', '852399038', '2018-08-22', '1', '2', '2');
 INSERT INTO `lab_mysql`.`invoices` (`idinvoices`, `invoice number`, `date`, `cars_idcars`, `costumers_idcostumers`, `salesperson_idsalesperson`) VALUES ('2', '731166526', '2018-12-31', '4', '1', '1');
-INSERT INTO `lab_mysql`.`invoices` (`idinvoices`, `invoice number`, `date`, `cars_idcars`, `costumers_idcostumers`, `salesperson_idsalesperson`) VALUES ('3', '271135104', '2019-', '3', '3', '3');
+INSERT INTO `lab_mysql`.`invoices` (`idinvoices`, `invoice number`, `date`, `cars_idcars`, `costumers_idcostumers`, `salesperson_idsalesperson`) VALUES ('3', '271135104', '2019-01-22', '3', '3', '3');

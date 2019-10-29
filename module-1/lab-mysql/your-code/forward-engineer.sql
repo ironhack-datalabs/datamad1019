@@ -70,21 +70,21 @@ CREATE TABLE IF NOT EXISTS `lab_mysql`.`invoices` (
   `salesperson_idsalesperson` INT NOT NULL,
   PRIMARY KEY (`idinvoices`),
   INDEX `fk_invoices_cars1_idx` (`cars_idcars` ASC) VISIBLE,
-  INDEX `fk_invoices_salesperson1_idx` (`salesperson_idsalesperson` ASC) VISIBLE,
   INDEX `fk_invoices_costumers1_idx` (`costumers_idcostumers` ASC) VISIBLE,
+  INDEX `fk_invoices_salesperson1_idx` (`salesperson_idsalesperson` ASC) VISIBLE,
   CONSTRAINT `fk_invoices_cars1`
     FOREIGN KEY (`cars_idcars`)
     REFERENCES `lab_mysql`.`cars` (`idcars`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_invoices_salesperson1`
-    FOREIGN KEY (`salesperson_idsalesperson`)
-    REFERENCES `lab_mysql`.`salesperson` (`idsalesperson`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_invoices_costumers1`
     FOREIGN KEY (`costumers_idcostumers`)
     REFERENCES `lab_mysql`.`costumers` (`idcostumers`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_invoices_salesperson1`
+    FOREIGN KEY (`salesperson_idsalesperson`)
+    REFERENCES `lab_mysql`.`salesperson` (`idsalesperson`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
