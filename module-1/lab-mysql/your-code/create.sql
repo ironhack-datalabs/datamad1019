@@ -5,32 +5,36 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema lab-mysql
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema lab-mysql
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `lab-mysql` DEFAULT CHARACTER SET utf8 ;
+USE `lab-mysql` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`salesperson`
+-- Table `lab-mysql`.`cars`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`salesperson` (
-  `staff ID` INT NOT NULL,
-  `name` CHAR(1) NULL,
-  `store` VARCHAR(45) NULL,
-  PRIMARY KEY (`staff ID`))
+CREATE TABLE IF NOT EXISTS `lab-mysql`.`cars` (
+  `cars id` VARCHAR(45) NOT NULL,
+  `VIN` VARCHAR(45) NULL,
+  `manufacturer` VARCHAR(45) NULL,
+  `model` VARCHAR(45) NULL,
+  `year` INT NULL,
+  `Colour` VARCHAR(45) NULL,
+  PRIMARY KEY (`cars id`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`customers`
+-- Table `lab-mysql`.`customers`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`customers` (
+CREATE TABLE IF NOT EXISTS `lab-mysql`.`customers` (
   `customer ID` INT NOT NULL,
-  `name` CHAR NULL,
+  `customers id` VARCHAR(45) NULL,
+  `name` VARCHAR(45) NULL,
   `phone number` INT NULL,
   `email` VARCHAR(45) NULL,
   `address` VARCHAR(45) NULL,
@@ -43,46 +47,44 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`invoices`
+-- Table `lab-mysql`.`salesperson`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`invoices` (
-  `invoice number` INT NOT NULL,
-  `date` DATE NULL,
-  `car` VARCHAR(45) NULL,
-  `customer` VARCHAR(45) NULL,
-  `sales person` VARCHAR(45) NULL,
-  `salesperson_staff ID` INT NOT NULL,
-  `customers_customer ID` INT NOT NULL,
-  PRIMARY KEY (`invoice number`),
-  INDEX `fk_invoices_salesperson_idx` (`salesperson_staff ID` ASC),
-  INDEX `fk_invoices_customers1_idx` (`customers_customer ID` ASC),
-  CONSTRAINT `fk_invoices_salesperson`
-    FOREIGN KEY (`salesperson_staff ID`)
-    REFERENCES `mydb`.`salesperson` (`staff ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_invoices_customers1`
-    FOREIGN KEY (`customers_customer ID`)
-    REFERENCES `mydb`.`customers` (`customer ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+CREATE TABLE IF NOT EXISTS `lab-mysql`.`salesperson` (
+  `staff ID` INT NOT NULL,
+  `salesperson id` VARCHAR(45) NULL,
+  `name` VARCHAR(45) NULL,
+  `store` VARCHAR(45) NULL,
+  PRIMARY KEY (`staff ID`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`cars`
+-- Table `lab-mysql`.`invoices`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`cars` (
-  `manufacturer` VARCHAR(45) NULL,
-  `model` VARCHAR(45) NULL,
-  `year` DATE NULL,
-  `Colour` VARCHAR(45) NULL,
-  `invoices_invoice number` INT NOT NULL,
-  INDEX `fk_cars_invoices1_idx` (`invoices_invoice number` ASC),
-  PRIMARY KEY (`invoices_invoice number`),
-  CONSTRAINT `fk_cars_invoices1`
-    FOREIGN KEY (`invoices_invoice number`)
-    REFERENCES `mydb`.`invoices` (`invoice number`)
+CREATE TABLE IF NOT EXISTS `lab-mysql`.`invoices` (
+  `invoices id` INT NOT NULL,
+  `invoice number` INT NULL,
+  `date` DATE NULL,
+  `car` VARCHAR(45) NOT NULL,
+  `salesperson` VARCHAR(45) NOT NULL,
+  `customer` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`invoices id`),
+  INDEX `fk_invoices_salesperson1_idx` (`salesperson` ASC),
+  INDEX `fk_invoices_customers1_idx` (`customer` ASC),
+  INDEX `fk_invoices_cars1_idx` (`car` ASC),
+  CONSTRAINT `fk_invoices_salesperson1`
+    FOREIGN KEY (`salesperson`)
+    REFERENCES `lab-mysql`.`salesperson` (`staff ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_invoices_customers1`
+    FOREIGN KEY (`customer`)
+    REFERENCES `lab-mysql`.`customers` (`customer ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_invoices_cars1`
+    FOREIGN KEY (`car`)
+    REFERENCES `lab-mysql`.`cars` (`cars id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
