@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema Cars_Database
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema Cars_Database
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `Cars_Database` DEFAULT CHARACTER SET utf8 ;
+USE `Cars_Database` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Salespersons`
+-- Table `Cars_Database`.`Salespersons`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Salespersons` (
+CREATE TABLE IF NOT EXISTS `Cars_Database`.`Salespersons` (
   `ID` INT NOT NULL,
   `Staff ID` VARCHAR(5) NOT NULL,
   `Name` VARCHAR(45) NOT NULL,
@@ -27,9 +27,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Costumers`
+-- Table `Cars_Database`.`Costumers`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Costumers` (
+CREATE TABLE IF NOT EXISTS `Cars_Database`.`Costumers` (
   `ID` INT NOT NULL,
   `idCostumers` VARCHAR(5) NOT NULL,
   `Name` VARCHAR(45) NOT NULL,
@@ -40,21 +40,14 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Costumers` (
   `State/Province` VARCHAR(45) NOT NULL,
   `Country` VARCHAR(45) NOT NULL,
   `Postal` VARCHAR(5) NULL,
-  `Salespersons_ID` INT NOT NULL,
-  PRIMARY KEY (`ID`),
-  INDEX `fk_Costumers_Salespersons1_idx` (`Salespersons_ID` ASC) VISIBLE,
-  CONSTRAINT `fk_Costumers_Salespersons1`
-    FOREIGN KEY (`Salespersons_ID`)
-    REFERENCES `mydb`.`Salespersons` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Invoices`
+-- Table `Cars_Database`.`Invoices`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Invoices` (
+CREATE TABLE IF NOT EXISTS `Cars_Database`.`Invoices` (
   `ID` INT NOT NULL,
   `Invoice Number` VARCHAR(45) NULL,
   `Date` DATE NOT NULL,
@@ -68,21 +61,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Invoices` (
   INDEX `fk_Invoices_Costumers1_idx` (`Costumers_ID` ASC) VISIBLE,
   CONSTRAINT `fk_Invoices_Salespersons1`
     FOREIGN KEY (`Salespersons_ID`)
-    REFERENCES `mydb`.`Salespersons` (`ID`)
+    REFERENCES `Cars_Database`.`Salespersons` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Invoices_Costumers1`
     FOREIGN KEY (`Costumers_ID`)
-    REFERENCES `mydb`.`Costumers` (`ID`)
+    REFERENCES `Cars_Database`.`Costumers` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`cars`
+-- Table `Cars_Database`.`cars`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`cars` (
+CREATE TABLE IF NOT EXISTS `Cars_Database`.`cars` (
   `id` INT NOT NULL,
   `VIN` VARCHAR(17) NOT NULL,
   `Manufacturer` VARCHAR(45) NOT NULL,
@@ -98,17 +91,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`cars` (
   INDEX `fk_cars_Salespersons1_idx` (`Salespersons_ID` ASC) VISIBLE,
   CONSTRAINT `fk_cars_Invoices`
     FOREIGN KEY (`Invoices_ID`)
-    REFERENCES `mydb`.`Invoices` (`ID`)
+    REFERENCES `Cars_Database`.`Invoices` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_cars_Costumers1`
     FOREIGN KEY (`Costumers_ID`)
-    REFERENCES `mydb`.`Costumers` (`ID`)
+    REFERENCES `Cars_Database`.`Costumers` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_cars_Salespersons1`
     FOREIGN KEY (`Salespersons_ID`)
-    REFERENCES `mydb`.`Salespersons` (`ID`)
+    REFERENCES `Cars_Database`.`Salespersons` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
