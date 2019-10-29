@@ -1,5 +1,7 @@
 ![Ironhack logo](https://i.imgur.com/1QgrNNw.png)
 
+# Hola q tal
+
 # Lab | MySQL Select
 
 ## Introduction
