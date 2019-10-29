@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `EjercicioSQL`.`Cars` (
   `model` VARCHAR(45) NULL,
   `year` INT(4) NULL,
   `color` VARCHAR(45) NULL,
-  `vin` VARCHAR(45) NULL,
+  `vin` VARCHAR(20) NULL,
   PRIMARY KEY (`vin_id`))
 ENGINE = InnoDB;
 
@@ -32,16 +32,16 @@ ENGINE = InnoDB;
 -- Table `EjercicioSQL`.`Customer`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `EjercicioSQL`.`Customer` (
-  `cust_id` INT NOT NULL,
-  `name` VARCHAR(45) NULL,
-  `phone` INT NULL,
+  `ID` INT NOT NULL,
+  `customer_id` INT NULL,
   `email` VARCHAR(45) NULL,
   `addres` VARCHAR(45) NULL,
   `city` VARCHAR(45) NULL,
   `state/province` VARCHAR(45) NULL,
   `country` VARCHAR(45) NULL,
   `zip` INT NULL,
-  PRIMARY KEY (`cust_id`))
+  `name` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
 
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `EjercicioSQL`.`Invoices` (
   INDEX `fk_Invoices_Cars1_idx` (`Cars_vin_id` ASC) VISIBLE,
   CONSTRAINT `fk_Invoices_Customer1`
     FOREIGN KEY (`Customer_cust_id`)
-    REFERENCES `EjercicioSQL`.`Customer` (`cust_id`)
+    REFERENCES `EjercicioSQL`.`Customer` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Invoices_Cars1`
@@ -95,3 +95,4 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
