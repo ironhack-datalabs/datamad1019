@@ -1,0 +1,1 @@
+DELETE FROM `mydb`.`Cars` WHERE (`idCar` = '4');
