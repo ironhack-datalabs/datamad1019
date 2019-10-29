@@ -24,7 +24,6 @@ INSERT INTO Salespersons () VALUES(7,'00008','Shonda Leer','São Paulo');
 
 SELECT * FROM Salespersons;
 
-
 INSERT INTO Invoices () VALUES(0,'852399038','2018-08-22',0,1,3);
 INSERT INTO Invoices () VALUES(1,'731166526','2018-12-31',3,0,5);
 INSERT INTO Invoices () VALUES(2,'71135104','2019-01-22',2,2,7);
