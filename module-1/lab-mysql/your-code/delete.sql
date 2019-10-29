@@ -1,0 +1,1 @@
+DELETE FROM car WHERE idcars = '4'
