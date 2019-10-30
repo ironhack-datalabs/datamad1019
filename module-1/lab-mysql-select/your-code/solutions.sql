@@ -47,11 +47,22 @@ LEFT JOIN sales ON titleauthor.title_id=sales.title_id
 GROUP BY authors.au_id
 ORDER BY ventas DESC) v
 
---bonus
-SELECT authors.au_id, authors.au_lname, authors.au_fname, sum(titles.advance * (titleauthor.royaltyper/100)+ titleauthor.royaltyper/100*titles.price*titles.ytd_sales*titles.royalty/100) as pago
+
+--bonus con authors. Única duda: si agrupo por authors o por authors y título. Aunque igualmente no alcanzo
+--los mismos resultados que en el lab advanced. No todo va a ser follar.
+SELECT authors.au_id, authors.au_lname, authors.au_fname, sum(titles.advance * (titleauthor.royaltyper/100)+ titleauthor.royaltyper/100*titles.price*sales.qty*titles.royalty/100) as pago
 FROM authors 
 INNER JOIN titleauthor ON titleauthor.au_id=authors.au_id
 INNER JOIN titles ON titles.title_id=titleauthor.title_id
-GROUP BY authors.au_id
+INNER JOIN sales ON titles.title_id=sales.title_id
+GROUP BY authors.au_id, titles.title_id
 ORDER BY pago DESC
+LIMIT 3
+--bonus sin authors. Mismas dudas. 
+SELECT titleauthor.au_id, titleauthor.title_id, sum(titles.advance * (titleauthor.royaltyper/100)+ titleauthor.royaltyper/100*titles.price*sales.qty*titles.royalty/100) as profits
+FROM titleauthor 
+INNER JOIN titles ON titles.title_id=titleauthor.title_id
+INNER JOIN sales ON titles.title_id=sales.title_id
+GROUP BY titleauthor.au_id, titleauthor.title_id
+ORDER BY profits DESC
 LIMIT 3
