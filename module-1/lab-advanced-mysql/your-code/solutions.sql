@@ -11,3 +11,4 @@ GROUP BY au.au_id, t.title_id, s.qty
 order by au.au_id ASC) as ar
 group by au_id
 order by profit desc
+
