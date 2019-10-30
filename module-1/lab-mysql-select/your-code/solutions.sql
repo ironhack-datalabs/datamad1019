@@ -52,14 +52,14 @@ SELECT
 
 # To check if your output is correct, sum up the TITLE COUNT column. The sum number should be
 # the same as the total number of records in Table titleauthor.
+
 # Total number of records in Table titleauthor = 25 rows
-# Sum of the TITLE COUNT column = 25 (24 rows, but 1 row (Albert Ringer in New Moon Books)
-# has a TITLE COUNT of 2)
+# Sum of the TITLE COUNT column = 25 (24 rows, but 1 row (Albert Ringer in New Moon Books) has a TITLE COUNT of 2)
 
 ########################################################################################
 
 # Challenge 3 - Best Selling Authors
-# Who are the top 3 authors who have sold the highest number of titles? Write a query to find out.
+# Who are the top 3 authors who have sold the highest number of titles?
     
 SELECT
 	au.au_id AS "AUTHOR ID",
@@ -112,6 +112,10 @@ SELECT
 
 # Bonus Challenge - Most Profiting Authors
 
+# Profit = Advance (fixed value) + Royalties (percentage of the entire book sales)
+# Advance = Advance * (royaltyper*0,01)
+# Royalties = ((Royalties*0.01)*(NumberOfBooksSold*PricePerBook)) * (royaltyper*0,01)
+
 SELECT
 	au.au_id AS "AUTHOR ID", au.au_lname AS "LAST NAME", au.au_fname AS "FIRST NAME",
     IFNULL(SUM((t.advance*(ta.royaltyper*0.01)) + ((t.price*s.qty)*(t.royalty*0.01)*(ta.royaltyper*0.01))), 0) AS "PROFIT"
@@ -122,11 +126,3 @@ SELECT
 	GROUP BY au.au_id
     ORDER BY PROFIT DESC
     LIMIT 3;
-    
-
-
-
-
-
-
-
