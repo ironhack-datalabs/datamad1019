@@ -16,3 +16,11 @@ from royalt_sales_author
 group by title_id, au_id;
 
 #STEP 3
+
+select r.au_id as AUTHOR_ID, sum(r.royalty_sales + (t.advance*ta.royaltyper/100)) as PROFIT
+from roy_tit_au r
+inner join titles t
+on r.title_id = t.title_id
+inner join titleauthor ta
+on t.title_id = ta.title_id
+group by r.au_id;
