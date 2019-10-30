@@ -34,7 +34,7 @@ INNER JOIN publications.sales ON publications.sales.title_id = publications.titl
 	) AS LOQUESEA
 	GROUP BY autorID, tituloID) as NUEVOLOQUESEA
 GROUP BY autorID
-ORDER BY Profit DESC
+ORDER BY profit DESC
 LIMIT 3;
 
 #Challange 2
@@ -61,3 +61,10 @@ ORDER BY Profit DESC
 LIMIT 3;
 
 #Challange 3
+CREATE TABLE most_profiting_authors;
+SELECT autorID, 
+sum(advance*(royaltyper/100) + sales_sum) as profit
+FROM temporal_sales_2
+GROUP BY autorID
+ORDER BY profit DESC
+LIMIT 3;
