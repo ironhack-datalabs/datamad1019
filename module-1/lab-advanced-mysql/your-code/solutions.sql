@@ -68,7 +68,8 @@ SELECT
     LIMIT 3;
 
 # Haciendo join después, es decir, no arrastrando Advance y Royaltyper a lo largo de las tablas
-# derivadas, obtengo unos resultados distintos, y no consigo entender por qué... Socorro!! :_D
+# derivadas, obtengo unos resultados distintos, y no consigo entender por qué... ¿Por qué no me
+# hace bien los joins? Socorro!! :_D
 
 SELECT
 	SecondTable.Author_ID,
@@ -102,7 +103,7 @@ SELECT
 # Creating MySQL temporary tables:
 
 # Voy a arrastar Advance y Royaltyper también a lo largo de las tablas temporales por el mismo
-# asunto que comentaba en el challenge anterior.
+# asunto que comentaba en el challenge anterior...
 
 # Step 1:
 CREATE TEMPORARY TABLE temporal_sales
@@ -137,6 +138,14 @@ SELECT
     LIMIT 3;
     
 #############################################################################################
-# Challenge 3
+# Challenge 3 - Create a permanent table
 #############################################################################################
 
+CREATE TABLE most_profiting_authors
+SELECT
+	Author_ID,
+    SUM( Advance*(Royal_Typer/100) + Total_Royalties) AS 'Profit'
+	FROM temporal_sales_2
+    GROUP BY Author_ID
+    ORDER BY Profit DESC
+    LIMIT 3;
