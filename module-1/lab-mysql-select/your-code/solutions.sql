@@ -1,42 +1,30 @@
 # Challenge 1: Who Have Published What At Where?
 
-select 	f.au_id as Author_id, 
-		f.au_lname as Last_name, 
-		f.au_fname as First_name, 
+select 	a.au_id as Author_id, 
+		a.au_lname as Last_name, 
+		a.au_fname as First_name, 
 		t.title as Title, 
 		p.pub_name as Publisher
-from titles t 
-right join (
-			select ta.au_id, 
-					a.au_lname, 
-					a.au_fname,
-					ta.title_id
-			from titleauthor ta
-			left join authors a
-				on ta.au_id = a.au_id
-				) f
-	on t.title_id = f.title_id
+from titleauthor ta
+join titles t 
+	on ta.title_id = t.title_id
+left join authors a
+	on ta.au_id = a.au_id
 left join publishers p
 	on t.pub_id = p.pub_id;
 
 # Challenge 2: Who Have Published How Many At Where?
 
-select 	f.au_id as Author_id, 
-		f.au_lname as Last_name, 
-		f.au_fname as First_name, 
+select 	a.au_id as Author_id, 
+		a.au_lname as Last_name, 
+		a.au_fname as First_name, 
 		p.pub_name as Publisher,
         count(t.title) as Title
-from titles t 
-right join (
-			select ta.au_id, 
-					a.au_lname, 
-					a.au_fname,
-					ta.title_id
-			from titleauthor ta
-			left join authors a
-				on ta.au_id = a.au_id
-				) f
-	on t.title_id = f.title_id
+from titleauthor ta
+join titles t 
+	on ta.title_id = t.title_id
+left join authors a
+	on ta.au_id = a.au_id
 left join publishers p
 	on t.pub_id = p.pub_id
 group by 1, 2, 3, 4;
@@ -46,6 +34,8 @@ select	a.au_id as Author_id,
 		a.au_lname as Last_name,
 		a.au_fname as First_name, 
 		total.qty as Total
+from titleauthor ta
+left join authors
 from authors a
 left join 
 		(
@@ -61,28 +51,26 @@ order by 4 desc
 limit 3;
 
 # Challenge 4: Best Selling Authors Ranking
+        
 select 	a.au_id as Author_id, 
 		a.au_lname as Last_name,
 		a.au_fname as First_name, 
-		ifnull(total.qty, 0) as Total
-from authors a
-left join 
-		(
-		select 	ta.au_id, 
-				sum(s.qty) as qty 
-		from sales s
-		left join titleauthor ta
-			on s.title_id = ta.title_id
-		group by 1
-		) total
-	on a.au_id = total.au_id
+		ifnull(sum(s.qty), 0) as Total
+from titleauthor ta
+left join sales s
+	on ta.title_id = s.title_id
+left join authors a
+	on a.au_id = ta.au_id
+left join titles t
+	on t.title_id = ta.title_id
+group by 1, 2, 3
 order by 4 desc;
 
 # Bonus Challenge: Most Profiting Authors
 select 	ta.au_id as Author_id, 
 		a.au_lname as Last_name, 
 		a.au_fname as First_name, 
-		format(sum(((t.royalty/100 *(t.price*s.qty)) + t.advance)*ta.royaltyper/100), 2)  as profit
+		sum(((t.royalty/100 *(t.price*s.qty)) + t.advance)*ta.royaltyper/100) as profit
 from titleauthor ta
 left join authors a
 	on ta.au_id = a.au_id
@@ -95,5 +83,11 @@ left join
 	on s.title_id = ta.title_id
 left join titles t
 	on ta.title_id = t.title_id
-group by 1, 2, 3;
+group by 1, 2, 3
+order by profit  desc;
 
+select * from titleauthor;
+
+
+select * from titles;
+select * from roysched where title_id = 'BU1111' 
