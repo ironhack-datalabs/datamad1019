@@ -1,3 +1,4 @@
+#CHALLENGE 1
 #STEP1
 CREATE TEMPORARY TABLE table_step1
 
@@ -31,5 +32,23 @@ SELECT
 FROM table_step2
 LEFT JOIN titles ON titles.title_id = table_step2.TITLE_ID
 LEFT JOIN titleauthor ON titles.title_id = titleauthor.title_id
-GROUP BY table_step2.AUTHOR_ID;
+GROUP BY table_step2.AUTHOR_ID
+ORDER BY PROFIT DESC
+LIMIT 3;
 
+#CHALLENGE 2
+
+
+#CHALLENGE 3
+CREATE TEMPORARY TABLE most_profiting_authors
+
+SELECT 
+		table_step2.AUTHOR_ID, 
+		SUM((titles.advance*titleauthor.royaltyper/100)+ table_step2.TOTAL_ROYALTIES) as 'PROFIT'
+       
+FROM table_step2
+LEFT JOIN titles ON titles.title_id = table_step2.TITLE_ID
+LEFT JOIN titleauthor ON titles.title_id = titleauthor.title_id
+GROUP BY table_step2.AUTHOR_ID
+ORDER BY PROFIT DESC
+LIMIT 3;
