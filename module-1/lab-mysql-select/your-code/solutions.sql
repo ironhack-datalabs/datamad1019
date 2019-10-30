@@ -27,7 +27,7 @@ select 	f.au_id as Author_id,
 		p.pub_name as Publisher,
         count(t.title) as Title
 from titles t 
-left join (
+right join (
 			select ta.au_id, 
 					a.au_lname, 
 					a.au_fname,
