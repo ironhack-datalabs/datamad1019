@@ -51,6 +51,8 @@ au.au_id
 ,au.au_fname) T1
 ORDER BY TITLE_Count DESC LIMIT 3
 
+
+
 --Challenge 4 - Best Selling Authors Ranking
 
 SELECT 
