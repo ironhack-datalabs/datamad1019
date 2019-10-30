@@ -8,7 +8,7 @@ CREATE TEMPORARY TABLE Tabla1
 			LEFT JOIN authors as au ON au.au_id = ta.au_id
 			LEFT JOIN sales as sa ON sa.title_id = ta.title_id
 		) as tabla1
-		GROUP BY Author_ID,Title_ID,RoyalTyper
+		GROUP BY Author_ID,Title_ID,RoyalTyper;
 
 SELECT Author_ID,sum((Sales_royalty+Advance*(RoyalTyper*0.01))) AS Profit
 From Tabla1
