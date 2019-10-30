@@ -20,9 +20,20 @@ ORDER BY COUNT(titles.title) DESC;
 
 SELECT authors.au_id, au_lname, au_fname, SUM(sales.qty)
 FROM authors 
-INNER JOIN titleauthor ON authors.au_id = titleauthor.au_id
-INNER JOIN titles ON titleauthor.title_id = titles.title_id
-INNER JOIN publishers ON titles.pub_id = publishers.pub_id
+LEFT JOIN titleauthor ON authors.au_id = titleauthor.au_id
+LEFT JOIN titles ON titleauthor.title_id = titles.title_id
+LEFT JOIN publishers ON titles.pub_id = publishers.pub_id
+LEFT JOIN sales ON titles.title_id = sales.title_id
+GROUP BY authors.au_id
+ORDER BY SUM(sales.qty) DESC LIMIT 3;
+
+#Challenge 4
+
+SELECT authors.au_id, au_lname, au_fname, IFNULL(SUM(sales.qty), 0)
+FROM authors 
+LEFT JOIN titleauthor ON authors.au_id = titleauthor.au_id
+LEFT JOIN titles ON titleauthor.title_id = titles.title_id
+LEFT JOIN publishers ON titles.pub_id = publishers.pub_id
 LEFT JOIN sales ON titles.title_id = sales.title_id
 GROUP BY authors.au_id
 ORDER BY SUM(sales.qty) DESC;
