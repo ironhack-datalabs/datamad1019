@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+<Worksheet ss:Name="Table1">
+	<Table>
+		<Column ss:Index="1" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Row>
+			<Cell><Data ss:Type="String">au_id</Data></Cell>
+			<Cell><Data ss:Type="String">title_id</Data></Cell>
+			<Cell><Data ss:Type="String">au_ord</Data></Cell>
+			<Cell><Data ss:Type="String">royaltyper</Data></Cell>
+		</Row>
+
+		<Row>
+			<Cell><Data ss:Type="String">172-32-1176</Data></Cell>
+			<Cell><Data ss:Type="String">PS3333</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">100</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">213-46-8915</Data></Cell>
+			<Cell><Data ss:Type="String">BU1032</Data></Cell>
+			<Cell><Data ss:Type="Number">2</Data></Cell>
+			<Cell><Data ss:Type="Number">40</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">213-46-8915</Data></Cell>
+			<Cell><Data ss:Type="String">BU2075</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">100</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">238-95-7766</Data></Cell>
+			<Cell><Data ss:Type="String">PC1035</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">100</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">267-41-2394</Data></Cell>
+			<Cell><Data ss:Type="String">BU1111</Data></Cell>
+			<Cell><Data ss:Type="Number">2</Data></Cell>
+			<Cell><Data ss:Type="Number">40</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">267-41-2394</Data></Cell>
+			<Cell><Data ss:Type="String">TC7777</Data></Cell>
+			<Cell><Data ss:Type="Number">2</Data></Cell>
+			<Cell><Data ss:Type="Number">30</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">274-80-9391</Data></Cell>
+			<Cell><Data ss:Type="String">BU7832</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">100</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">409-56-7008</Data></Cell>
+			<Cell><Data ss:Type="String">BU1032</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">60</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">427-17-2319</Data></Cell>
+			<Cell><Data ss:Type="String">PC8888</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">50</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">472-27-2349</Data></Cell>
+			<Cell><Data ss:Type="String">TC7777</Data></Cell>
+			<Cell><Data ss:Type="Number">3</Data></Cell>
+			<Cell><Data ss:Type="Number">30</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">486-29-1786</Data></Cell>
+			<Cell><Data ss:Type="String">PC9999</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">100</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">486-29-1786</Data></Cell>
+			<Cell><Data ss:Type="String">PS7777</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">100</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">648-92-1872</Data></Cell>
+			<Cell><Data ss:Type="String">TC4203</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">100</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">672-71-3249</Data></Cell>
+			<Cell><Data ss:Type="String">TC7777</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">40</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">712-45-1867</Data></Cell>
+			<Cell><Data ss:Type="String">MC2222</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">100</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">722-51-5454</Data></Cell>
+			<Cell><Data ss:Type="String">MC3021</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">75</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">724-80-9391</Data></Cell>
+			<Cell><Data ss:Type="String">BU1111</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">60</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">724-80-9391</Data></Cell>
+			<Cell><Data ss:Type="String">PS1372</Data></Cell>
+			<Cell><Data ss:Type="Number">2</Data></Cell>
+			<Cell><Data ss:Type="Number">25</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">756-30-7391</Data></Cell>
+			<Cell><Data ss:Type="String">PS1372</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">75</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">807-91-6654</Data></Cell>
+			<Cell><Data ss:Type="String">TC3218</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">100</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">846-92-7186</Data></Cell>
+			<Cell><Data ss:Type="String">PC8888</Data></Cell>
+			<Cell><Data ss:Type="Number">2</Data></Cell>
+			<Cell><Data ss:Type="Number">50</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">899-46-2035</Data></Cell>
+			<Cell><Data ss:Type="String">MC3021</Data></Cell>
+			<Cell><Data ss:Type="Number">2</Data></Cell>
+			<Cell><Data ss:Type="Number">25</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">899-46-2035</Data></Cell>
+			<Cell><Data ss:Type="String">PS2091</Data></Cell>
+			<Cell><Data ss:Type="Number">2</Data></Cell>
+			<Cell><Data ss:Type="Number">50</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">998-72-3567</Data></Cell>
+			<Cell><Data ss:Type="String">PS2091</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">50</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">998-72-3567</Data></Cell>
+			<Cell><Data ss:Type="String">PS2106</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="Number">100</Data></Cell>
+		</Row>	</Table>
+</Worksheet>
+</Workbook>
