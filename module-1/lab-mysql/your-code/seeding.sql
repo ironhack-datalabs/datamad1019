@@ -14,9 +14,10 @@ INSERT INTO `lab-mysql1`.`customers` (`customer ID`, `name`, `phone number`, `em
 INSERT INTO `lab-mysql1`.`customers` (`customer ID`, `name`, `phone number`, `email`, `address`, `city`, `state/province`, `country`, `zip/postal code`, `customers id`) VALUES ('2', 'Napoléon Bonaparte	', '+33 1 79 75 40 00', '-', '40 Rue du Colisée	', 'Paris', 'Île-de-France	', 'France', '75008', '30001');
 
 # invoices 
-INSERT INTO `lab-mysql`.`invoices` (`invoices id`, `invoice number`, `date`, `car`, `salesperson`, `customer`) VALUES ('0', '852399038', '2018-08-22', '0', '1', '3');
-INSERT INTO `lab-mysql`.`invoices` (`invoices id`, `invoice number`, `date`, `car`, `salesperson`, `customer`) VALUES ('1', '731166526', '2018-12-31', '3', '0', '5');
-INSERT INTO `lab-mysql`.`invoices` (`invoices id`, `invoice number`, `date`, `car`, `salesperson`, `customer`) VALUES ('2', '271135104', '2019-01-22', '2', '2', '7');
+
+INSERT INTO `lab-mysql`.`invoices` (`invoices id`, `invoice number`, `date`, `salesperson`, `customer`, `car`), VALUES ('0', '852399038', '2018-08-22', '3', '1', '0');
+INSERT INTO `lab-mysql`.`invoices` (`invoices id`, `invoice number`, `date`, `salesperson`, `customer`, `car`), VALUES ('1', '731166526', '2018-12-31', '5', '0', '3');
+INSERT INTO `lab-mysql`.`invoices` (`invoices id`, `invoice number`, `date`, `salesperson`, `customer`, `car`), VALUES ('2', '271135104', '2019-01-22', '7', '2', '2');
 
 
 #sales person
