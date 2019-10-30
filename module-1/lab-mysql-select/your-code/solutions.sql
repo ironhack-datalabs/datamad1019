@@ -25,14 +25,14 @@ order by AUTHOR_ID desc;
 
 # Challenge 3
 
-select a.au_id as AUTHOR_ID, a.au_lname as LAST_NAME, a.au_fname as FIRST_NAME, count(*) as TOTAL
+select a.au_id as AUTHOR_ID, a.au_lname as LAST_NAME, a.au_fname as FIRST_NAME, sum(s.qty) as TOTAL
 from publications.authors a
 left join publications.titleauthor ta
 on a.au_id = ta.au_id
 left join publications.sales s
 on ta.title_id = s.title_id
-group by s.title_id
-order by TITLE desc
+group by a.au_id
+order by TOTAL desc
 limit 3;
 
 # Challenge 4
