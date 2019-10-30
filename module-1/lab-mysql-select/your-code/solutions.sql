@@ -30,23 +30,20 @@ left join publishers p
 group by 1, 2, 3, 4;
 
 # Challenge 3: Best Selling Authors
-select	a.au_id as Author_id, 
+
+        
+select 	a.au_id as Author_id, 
 		a.au_lname as Last_name,
 		a.au_fname as First_name, 
-		total.qty as Total
+		ifnull(sum(s.qty), 0) as Total
 from titleauthor ta
-left join authors
-from authors a
-left join 
-		(
-		select	ta.au_id, 
-				sum(s.qty) as qty 
-		from sales s
-		left join titleauthor ta
-			on s.title_id = ta.title_id
-		group by 1
-		) total
-	on a.au_id = total.au_id
+left join sales s
+	on ta.title_id = s.title_id
+left join authors a
+	on a.au_id = ta.au_id
+left join titles t
+	on t.title_id = ta.title_id
+group by 1, 2, 3
 order by 4 desc
 limit 3;
 
@@ -85,9 +82,3 @@ left join titles t
 	on ta.title_id = t.title_id
 group by 1, 2, 3
 order by profit  desc;
-
-select * from titleauthor;
-
-
-select * from titles;
-select * from roysched where title_id = 'BU1111' 
