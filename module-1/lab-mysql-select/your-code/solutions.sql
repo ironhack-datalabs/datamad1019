@@ -43,6 +43,7 @@
 --      LEFT JOIN titles AS t ON s.title_id = t.title_id
 -- 		GROUP BY ta.au_id, au.au_id
 --      ORDER BY `PROFIT` DESC
+--      LIMIT 3
 
 
 
