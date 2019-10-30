@@ -33,4 +33,16 @@ FROM publications.authors
     LEFT JOIN publications.titles ON publications.titles.title_id = publications.titleauthor.title_id
     LEFT JOIN publications.sales ON publications.sales.title_id = publications.titles.title_id
 	GROUP BY publications.authors.au_id
-	ORDER BY TITLES_SALES DESC
+	ORDER BY TITLES_SALES DESC;
+#Bonus
+SELECT publications.authors.au_id, publications.authors.au_fname, 
+publications.authors.au_lname, 
+sum((publications.titles.advance*publications.titleauthor.royaltyper/100)+
+((publications.titles.royalty/100)*(publications.sales.qty*publications.titles.price)*
+(publications.titleauthor.royaltyper/100))) AS Profit
+FROM publications.authors
+INNER JOIN publications.titleauthor ON publications.titleauthor.au_id = publications.authors.au_id
+INNER JOIN publications.titles ON publications.titles.title_id = publications.titleauthor.title_id
+INNER JOIN publications.sales ON publications.sales.title_id = publications.titles.title_id
+GROUP BY publications.authors.au_id
+LIMIT 3;
