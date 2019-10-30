@@ -89,3 +89,30 @@ GROUP BY title_author_royalty1.au_id, title_author_royalty1.title_id
 SELECT title_author_sum_profit1.au_id, (title_author_sum_profit1.sumaroyalties + title_author_sum_profit1.advance*title_author_sum_profit1.royaltyper/100) as sumatotal FROM title_author_sum_profit1
 ORDER BY sumatotal DESC
 LIMIT 3
+
+--challenge 3
+CREATE TABLE Tabla_Permanente(
+SELECT title_author_sum_profit1.au_id as Author,
+(title_author_sum_profit1.sumaroyalties + title_author_sum_profit1.advance*title_author_sum_profit1.royaltyper/100) as Profits
+FROM title_author_sum_profit1
+ORDER BY Profits DESC);
+
+
+
+--bonus con authors. Única duda: si agrupo por authors o por authors y título
+SELECT authors.au_id, authors.au_lname, authors.au_fname, sum(titles.advance * (titleauthor.royaltyper/100)+ titleauthor.royaltyper/100*titles.price*sales.qty*titles.royalty/100) as pago
+FROM authors 
+INNER JOIN titleauthor ON titleauthor.au_id=authors.au_id
+INNER JOIN titles ON titles.title_id=titleauthor.title_id
+INNER JOIN sales ON titles.title_id=sales.title_id
+GROUP BY authors.au_id, titles.title_id
+ORDER BY pago DESC
+LIMIT 3
+--mi bonus actualizado según la chavala
+SELECT titleauthor.au_id, titleauthor.title_id, sum(titles.advance * (titleauthor.royaltyper/100)+ titleauthor.royaltyper/100*titles.price*sales.qty*titles.royalty/100) as profits
+FROM titleauthor 
+INNER JOIN titles ON titles.title_id=titleauthor.title_id
+INNER JOIN sales ON titles.title_id=sales.title_id
+GROUP BY titleauthor.au_id, titleauthor.title_id
+ORDER BY profits DESC
+LIMIT 3
