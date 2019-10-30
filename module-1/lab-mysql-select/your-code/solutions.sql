@@ -6,7 +6,7 @@ select 	f.au_id as Author_id,
 		t.title as Title, 
 		p.pub_name as Publisher
 from titles t 
-left join (
+right join (
 			select ta.au_id, 
 					a.au_lname, 
 					a.au_fname,
