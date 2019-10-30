@@ -53,7 +53,7 @@ SELECT
 authors.au_id AS AuthorID,
 authors.au_lname AS LastName,
 authors.au_fname AS FirstName,
-sum(titles.advance + titles.ytd_sales*titles.price*titles.royalty/100*titleauthor.royaltyper/100) AS PROFIT
+sum(titles.advance*royaltyper/100 + titles.ytd_sales*titles.price*titles.royalty/100*titleauthor.royaltyper/100) AS PROFIT
 FROM authors
 LEFT JOIN titleauthor ON titleauthor.au_id = authors.au_id
 LEFT JOIN titles ON titles.title_id = titleauthor.title_id
