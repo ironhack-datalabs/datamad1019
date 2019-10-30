@@ -1,3 +1,5 @@
+#CHALLENGE 1
+
 #STEP 1
 
 create temporary table royalt_sales_author
@@ -23,4 +25,21 @@ inner join titles t
 on r.title_id = t.title_id
 inner join titleauthor ta
 on t.title_id = ta.title_id
-group by r.au_id;
+group by r.au_id
+order by PROFIT desc
+limit 3;
+
+#CHALLENGE 2
+
+#CHALLENGE 3
+
+create temporary table most_profiting_authors
+select r.au_id as AUTHOR_ID, sum(r.royalty_sales + (t.advance*ta.royaltyper/100)) as PROFIT
+from roy_tit_au r
+inner join titles t
+on r.title_id = t.title_id
+inner join titleauthor ta
+on t.title_id = ta.title_id
+group by r.au_id
+order by PROFIT desc
+limit 3;
