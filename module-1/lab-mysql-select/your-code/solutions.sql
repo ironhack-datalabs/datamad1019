@@ -64,7 +64,7 @@ SELECT
 	GROUP BY authors.au_id
     ORDER BY TOTAL DESC;
 
-    BONUS
+    #BONUS
     SELECT 
 	authors.au_id AS 'AUTHOR ID', 
 	authors.au_lname AS 'LAST NAME',
