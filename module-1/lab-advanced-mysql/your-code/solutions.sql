@@ -35,3 +35,7 @@ SELECT
     RIGHT JOIN authors AS au ON au.au_id = tia.au_id
     LEFT JOIN sales AS sa on t.title_id = sa.title_id) AS x
 GROUP BY AUTHOR_ID, TITLE_ID, RY) Y
+
+-- CHALLENGE 2
+
+
