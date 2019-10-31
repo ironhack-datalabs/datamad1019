@@ -26,3 +26,13 @@ LEFT JOIN sales ON sales.title_id = titles.title_id
 GROUP BY authors.au_id
 ORDER BY TOTAL DESC
 LIMIT 3;
+
+# challenge 4
+
+SELECT authors.au_id, authors.au_lname, authors.au_fname,IFNULL(SUM(sales.qty),0) as TOTAL
+FROM authors 
+LEFT JOIN titleauthor ON authors.au_id = titleauthor.au_id
+LEFT JOIN titles ON titles.title_id = titleauthor.title_id
+LEFT JOIN sales ON sales.title_id = titles.title_id
+GROUP BY authors.au_id
+ORDER BY TOTAL DESC;
