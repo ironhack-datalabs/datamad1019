@@ -40,8 +40,9 @@ LIMIT 3;
 #Challange 2
 #step1
 CREATE TEMPORARY TABLE temporal_sales
-SELECT publications.titles.title_id, publications.authors.au_id, 
-(titles.price * sales.qty * titles.royalty / 100 * titleauthor.royaltyper / 100) AS sales_royalty
+SELECT publications.titles.title_id as tituloID, publications.authors.au_id as autorID, 
+(titles.price * sales.qty * titles.royalty / 100 * titleauthor.royaltyper / 100) AS sales_royalty,
+titles.advance as advance, titleauthor.royaltyper as royaltyper
 FROM publications.authors
 INNER JOIN publications.titleauthor ON publications.titleauthor.au_id = publications.authors.au_id
 INNER JOIN publications.titles ON publications.titles.title_id = publications.titleauthor.title_id
@@ -49,14 +50,13 @@ INNER JOIN publications.sales ON publications.sales.title_id = publications.titl
 
 #step2
 CREATE TEMPORARY TABLE temporal_sales_2
-SELECT autorID, tituloID, sum(sales_royalty) 
+SELECT autorID, tituloID, sum(sales_royalty) as sales_sum, sum(advance*(royaltyper/100)) as esto
 FROM temporal_sales
 GROUP BY autorID, tituloID;
 
 #step3
-SELECT autorID, sum(advance*(royaltyper/100) + sales_sum) as profit
+SELECT autorID, (esto+sales_sum) as profit
 FROM temporal_sales_2
-GROUP BY autorID
 ORDER BY Profit DESC
 LIMIT 3;
 
