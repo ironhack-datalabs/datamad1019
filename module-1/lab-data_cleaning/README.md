@@ -1,6 +1,6 @@
 ![Ironhack logo](https://i.imgur.com/1QgrNNw.png)
 
-# Lab | Data Cleaning ña
+# Lab | Data Cleaning
 
 ## Introduction
 
