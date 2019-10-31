@@ -62,9 +62,7 @@ LIMIT 3;
 
 #Challange 3
 CREATE TABLE most_profiting_authors;
-SELECT autorID, 
-sum(advance*(royaltyper/100) + sales_sum) as profit
+SELECT autorID, (esto+sales_sum) as profit
 FROM temporal_sales_2
-GROUP BY autorID
 ORDER BY profit DESC
 LIMIT 3;
