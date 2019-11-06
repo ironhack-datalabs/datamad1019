@@ -18,3 +18,4 @@ def githubRequestAuthorized(resource):
     print("Requesting authorized {}".format(url))
     res = requests.get(url, headers=headers)
     return res
+
