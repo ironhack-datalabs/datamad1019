@@ -1,6 +1,7 @@
 import os
 import requests as r
 from dotenv import load_dotenv
+import re
 load_dotenv()
 
 
@@ -29,4 +30,39 @@ for e in data.items():
 
 print(languages)
 
+###########
+print('Challenge 2: Fork Languages')
 
+url = '/repos/ironhack-datalabs/datamad1019/commits'
+params = "?since=2019-01-01T00:00:00Z"
+commits = githubRequestAuthorized("{}{}".format(url, params)).json()
+
+print(len(commits))
+
+
+###########
+print('Challenge 3:')
+
+url = '/repos/ironhack-datalabs/scavenger/contents'
+paths = githubRequestAuthorized("{}".format(url)).json()
+
+folders = []
+for path in paths: 
+    for key, value in path.items():
+        if key == 'path':
+            folders.append(value)
+folders.remove('.gitignore')
+print(folders)
+
+files =[]
+for folder in folders:
+    files.append(githubRequestAuthorized("{}/{}".format(url, folder)).json())
+print(files)
+
+fin = []
+for file in files: 
+    for fil in file:
+        for key, value in path.items():
+            if key == 'path':
+                fin.append(value)
+print(fin)
