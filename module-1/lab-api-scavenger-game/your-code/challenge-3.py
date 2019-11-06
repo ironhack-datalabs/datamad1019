@@ -18,7 +18,7 @@ def githubRequestAuthorized(resource):
     res = requests.get(url, headers=headers)
     return res
 
-data = githubRequestAuthorized("/repos/ironhack-datalabs/datamad1019/commits?since=2019-01-01T00:00:00Z").json()
+data = githubRequestAuthorized("/repos/ironhack-datalabs/scavenger?").json()
 
 print(len(data))
 
