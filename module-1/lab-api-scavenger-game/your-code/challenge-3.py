@@ -22,6 +22,7 @@ data = githubRequestAuthorized("/repos/ironhack-datalabs/scavenger/contents").js
 
 folders = list(map(lambda contents: contents["path"], data))
 folders.remove(".gitignore")
+
 print("folders are:{}".format(folders))
 
 def getnames(a):
@@ -37,28 +38,29 @@ def getcontents(c,d):
 
 secret_files=[g for f in folders for g in getnames(f) if g.endswith(".scavengerhunt")]
 secret_files.sort(reverse=False)
-secret_content=[getcontents(f,getnames(f)) for f in folders for h in secret_files]
+##secret_content=[getcontents(f,getnames(f)) for f in folders for h in secret_files]
 
 ## Filtered List of files
 ## Answer is: ['.0001.scavengerhunt', '.0002.scavengerhunt', '.0003.scavengerhunt', '.0004.scavengerhunt', '.0005.scavengerhunt', '.0006.scavengerhunt', '.0007.scavengerhunt', '.0008.scavengerhunt', '.0009.scavengerhunt', '.0010.scavengerhunt', '.0011.scavengerhunt', '.0012.scavengerhunt', '.0013.scavengerhunt', '.0014.scavengerhunt', '.0015.scavengerhunt', '.0016.scavengerhunt', '.0017.scavengerhunt', '.0018.scavengerhunt', '.0019.scavengerhunt', '.0020.scavengerhunt', '.0021.scavengerhunt', '.0022.scavengerhunt', '.0023.scavengerhunt', '.0024.scavengerhunt']
-
 print(secret_files)
-print(secret_content)
-'''
-for f in folders:
-    fold=githubRequestAuthorized("/repos/ironhack-datalabs/scavenger/contents/{}".format(f)).json()
-    for g in fold:
-        if g['name'] in secret_files:
-            cont = githubRequestAuthorized("/repos/ironhack-datalabs/scavenger/contents/{}/{}".format(f,g['name'])).json()
-            l1_c=list(cont["content"])
 
+##print(getcontents(15024,.0006.scavengerhunt))
+
+words=[]
+
+for file in secret_files:
+    d=githubRequestAuthorized("repos/ironhack-datalabs/scavenger/contents/"+file).json()
+    word.append(d['content'])
+    
+##sf=githubRequestAuthorized('/repos/ironhack-datalabs/scavenger/contents/'+secret_fil[0]).json()
+
+print(words)
+
+'''
 print(list(l1_c))           
             
 ficheroDic[fichero['name']]=contenido['content']]
 
 secret_files2=[g for f in folders for g in getcontents(f) if g.endswith(".scavengerhunt")]
 secret_files2.sort(reverse=False)
-https://github.com/ironhack-datalabs/scavenger/blob/master/15024/.0006.scavengerhunt
-word = list(map(lambda contents: contents["content"], z))
-print(word)
 '''
