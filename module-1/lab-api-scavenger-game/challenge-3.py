@@ -46,25 +46,19 @@ for fo, fi in tup_fold_file:
 #encode base64
 import re
 
-print ("Code List: ", code_lst)
-str_code = "".join(code_lst)
-encode = re.sub (r"\\n", "", str_code)
-print("Code str: ", str_code)
-
-import base64   
-final = base64.b64decode(encode)
-print("Final: ", final)
-
 # b'In\ndata\n'
 # no consigo decodificarlo completamente
-'''
 
-print ("Code List: ", code_lst)
-encode = [re.sub (r"\\n", "", e) for e in code_lst]
-str_code = "".join(encode)
-print("Code str: ", str_code)
+import base64
 
-import base64   
-final = base64.b64decode(str_code)
-print("Final: ", final)
-'''
+
+
+decode = [(base64.b64decode(e)).decode("utf-8") for e in code_lst]
+print("Decode: ", decode)
+encode = [re.sub (r"\n", " ", e) for e in decode]
+print("Encode: ", encode)
+
+str_decode = "".join(encode)
+print("Code str: ", str_decode)
+
+
