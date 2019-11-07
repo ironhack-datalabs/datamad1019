@@ -20,7 +20,7 @@ def githubRequestAuthorized(resource):
 #Challenge 3
 
 dataScavenger = githubRequestAuthorized("/repos/ironhack-datalabs/scavenger/contents").json()
-# name o path
+
 path_list = list(map(lambda repo: repo["path"], dataScavenger))
 path_list = path_list[1:26]
 
@@ -43,15 +43,9 @@ for fo, fi in tup_fold_file:
     dataFile = githubRequestAuthorized("/repos/ironhack-datalabs/scavenger/contents/{}/{}".format(fo, fi)).json()
     code_lst.append(dataFile['content'])
 
-#encode base64
+
 import re
-
-# b'In\ndata\n'
-# no consigo decodificarlo completamente
-
 import base64
-
-
 
 decode = [(base64.b64decode(e)).decode("utf-8") for e in code_lst]
 print("Decode: ", decode)
@@ -60,5 +54,3 @@ print("Encode: ", encode)
 
 str_decode = "".join(encode)
 print("Code str: ", str_decode)
-
-
