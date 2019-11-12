@@ -1,4 +1,4 @@
-#! bin/bash
+#!/bin/bash
 
 #Imprime en consola Hello World.
 #echo 'Hello World'
@@ -62,6 +62,73 @@
 
 #Cuenta el número de apariciones del string et en todos los archivos del directorio lorem-copy.
 #grep -o 'et' lorem-copy/*.txt | wc -l
+
+#------
+#Bonus
+
+#Almacena en una variable name tu nombre.
+#NAME="Ovi"
+
+#Imprime esa variable.
+#echo $NAME
+
+#Crea un directorio nuevo que se llame como el contenido de la variable name.
+#mkdir $NAME
+
+#Elimina ese directorio.
+#rmdir $NAME
+
+#Por cada archivo dentro de la carpeta lorem imprime el número de carácteres que tienen sus nombres. Intenta primero mostrar los archivos mediante un bucle for
+
+
+#Imprime los ficheros
+    #No consigo que sean solo los ficheros, me lo cuenta como lorem/at.txt y además no sé como cuenta
+#for VARIABLE in lorem/*
+#do
+#    echo on $VARIABLE
+#done
+
+
+#Imprime las longitudes de los nombres de los ficheros
+    # En este se ve mejor mi duda, por ejemplo cuenta 15 para lorem/at.txt y yo cuento 12
+#for VARIABLE in lorem/*
+#do
+#    echo on $VARIABLE | awk '{print length}'
+#done
+
+#Imprime outputs con la siguiente estructura: lorem has 5 characters lenght
+#for VARIABLE in lorem/*
+#do
+#    echo on $VARIABLE | awk '{print $VARIABLE " has " length($VARIABLE) " characters lenght"}'
+#done
+
+#Muestra los procesos de forma jerárquica que se están ejecutando en tu ordenador:
+
+#Usando el comando top o htop
+#top -n 10
+#Usando el comando ps con argumentos
+#ps -ef | less
+#Muestra información sobre tu procesador por pantalla
+#lscpu
+
+#Crea 3 alias y haz que estén disponibles cada vez que inicias sesión
+#comprobar si en:
+#gedit ~/.bashrc  tenemos:
+    #if [ -f ~/.bash_aliases ]; then
+    #. ~/.bash_aliases
+    #fi
+#añadir al final del ~/.bashrc los alias:
+    # alias name1='Obi'
+    # alias name2='Wan'
+    # alias lastname='Kenobi'
+
+#Comprime las carpetas lorem y lorem-copy en un archivo llamado lorem-compressed.tar.gz
+#tar -czvf lorem-compressed.tar.gz lorem/* lorem-copy/*
+
+#Descomprime el archivo lorem-compressed.tar.gz en la carpeta lorem-uncompressed
+#tar xvzf lorem-compressed.tar.gz --one-top-level
+
+
 
 
 
