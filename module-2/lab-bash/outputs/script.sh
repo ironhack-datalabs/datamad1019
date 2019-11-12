@@ -2,74 +2,99 @@
 
 ##Ejercicios!!!
 
-# Ejercicio 1
+# Imprime en consola `Hello World`:
 #echo "Hello World"
 
-# Ejercicio 2
+# Crea un directorio nuevo llamado `new_dir`:
 #mkdir 'new_dir'
 
-# Ejercicio 3
+# Elimina ese directorio:
 #rmdir 'new_dir'
 
-# Ejercicio 4
+# Copia el archivo `sed.txt` dentro de la carpeta lorem a la carpeta lorem-copy:
 #cp ../lorem/sed.txt ../lorem-copy
 
-# Ejercicio 5
+# Copia los otros dos archivos de la carpeta lorem a la carpeta lorem-copy en una sola línea mediante `;`:
 #cp ../lorem/*.txt ../lorem-copy
 
-# Ejercicio 6
+# Muestra el contenido del archivo `sed.txt` dentro de la carpeta lorem:
 #cat '../lorem-copy/sed.txt'
 
-# Ejercicio 7
+# Muestra el contenido de los archivos `at.txt` y `lorem.txt` dentro de la carpeta lorem:
 #cat ../lorem-copy/at.txt ../lorem-copy/lorem.txt
 
-# Ejercicio 8
+# Visualiza las primeras 3 líneas del archivo `sed.txt` dentro de la carpeta lorem-copy:
 #head -3 ../lorem-copy/sed.txt
 
-# Ejercicio 9
+# Visualiza las ultimas 3 líneas del archivo `sed.txt` dentro de la carpeta lorem-copy:
 #tail -3 ../lorem-copy/sed.txt
 
-# Ejercicio 10
+# Añade `Homo homini lupus.` al final de archivo `sed.txt` dentro de la carpeta lorem-copy:
 #echo 'Homo homini lupus.' >> ../lorem-copy/sed.txt
 
-# Ejercicio 11
+# Visualiza las últimas 3 líneas del archivo `sed.txt` dentro de la carpeta lorem-copy. Deberías ver ahora `Homo homini lupus`:
 #tail -3 ../lorem-copy/sed.txt
 
-# Ejercicio 12
+# Sustituye todas las apariciones de `et` por `ET` del archivo `at.txt` dentro de la carpeta lorem-copy. Deberás usar `sed`:
 #sed 's/et/ET/' ../lorem-copy/at.txt
 
-# Ejercicio 13
+# Encuentra al usuario activo en el sistema:
 #who
 
-# Ejercicio 14
+# Encuentra dónde estás en tu sistema de ficheros:
 #pwd
 
-# Ejercicio 15
+# Lista los archivos que terminan por `.txt` en la carpeta lorem:
 #ls ../lorem/*.txt
 
-# Ejercicio 16
+# Cuenta el número de líneas que tiene el archivo `sed.txt` dentro de la carpeta lorem:
 #wc -l ../lorem/sed.txt
 
-# Ejercicio 17
+# Cuenta el número de **archivos** que empiezan por `lorem` que están en este directorio y en directorios internos:
 #find '../' -name lorem* -type f | wc -l
 
-# Ejercicio 18
+# Encuentra todas las apariciones de `et` en `at.txt` dentro de la carpeta lorem:
 #grep -r 'et' ../lorem/at.txt 
 
-# Ejercicio 19
+# Cuenta el número de apariciones del string `et` en `at.txt` dentro de la carpeta lorem:
 #grep -o 'et' ../lorem/at.txt | wc -l
 
-# Ejercicio 20
+# Cuenta el número de apariciones del string `et` en todos los archivos del directorio lorem-copy:
 #grep -o 'et' ../lorem-copy/* | wc -l
 
 ##BONUS
-name='Isa'
+
+# Almacena en una variable `name` tu nombre:
+#name='Isa'
+
+# Imprime esa variable:
 #echo $name
+
+# Crea un directorio nuevo que se llame como el contenido de la variable `name`:
 #mkdir 'isa'
+
+# Elimina ese directorio:
 #rmdir 'isa'
-ls ../lorem/
-for file in $(ls ../lorem/)
-do
-fn=${file%.*}
-echo ${fn} 'has' ${#fn} 'characters length'
-done 
+
+# Por cada archivo dentro de la carpeta `lorem` imprime el número de carácteres que tienen sus nombres. 
+# Intenta primero mostrar los archivos mediante un bucle for:
+#ls ../lorem/
+#for file in $(ls ../lorem/)
+#do
+#fn=${file%.*}
+#echo ${fn} 'has' ${#fn} 'characters length'
+#done 
+
+# Muestra los procesos de forma jerárquica que se están ejecutando en tu ordenador:
+#top
+#ps -l
+
+# Muestra información sobre tu procesador por pantalla: 
+#sysctl -n machdep.cpu.brand_string
+
+# Comprime las carpetas lorem y lorem-copy en un archivo llamado lorem-compressed.tar.gz:
+#tar -cf lorem-compressed.tar.gz ../lorem/ ../lorem-copy/
+
+# Descomprime el archivo lorem-compressed.tar.gz en la carpeta lorem-uncompressed:
+#mkdir lorem-uncompressed
+#tar -xvf lorem-compressed.tar.gz
