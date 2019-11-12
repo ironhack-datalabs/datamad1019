@@ -59,14 +59,24 @@ No aparece en el help el ";" . Buscar mejor luego
 
 
 #ex16 Cuenta el número de líneas que tiene el archivo `sed.txt` dentro de la carpeta lorem. 
+#   wc -l ../lorem/sed.txt  
+
 
 #ex17 Cuenta el número de **archivos** que empiezan por `lorem` que están en este directorio y en directorios internos.
+#   ls -dq ../**lorem** |wc -l
+
 
 #ex18 Encuentra todas las apariciones de `et` en `at.txt` dentro de la carpeta lorem.
+#   grep -i "et" ../lorem/at.txt 
+
 
 #ex19 Cuenta el número de apariciones del string `et` en `at.txt` dentro de la carpeta lorem. 
+#   less ../lorem/at.txt | grep -c "et"
+
 
 #ex20  Cuenta el número de apariciones del string `et` en todos los archivos del directorio lorem-copy. 
+#   grep -s "et" ../* .*
+
 
 ## Ficheros bash
 
@@ -112,7 +122,11 @@ exercices  inputs  lorem  lorem-copy  modules  outputs  README.md
 
 #* Muestra los procesos de forma jerárquica que se están ejecutando en tu ordenador:
 #    1. Usando el comando top o htop
+#       top -n10
+
 #    2. Usando el comando ps con argumentos
+#       ps -A
+#       ps -e
 
 #* Muestra información sobre tu procesador por pantalla
 
