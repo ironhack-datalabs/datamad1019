@@ -40,14 +40,23 @@ No aparece en el help el ";" . Buscar mejor luego
 
 
 #ex11 Visualiza las últimas 3 líneas del archivo `sed.txt` dentro de la carpeta lorem-copy. Deberías ver ahora `Homo homini lupus.`. 
+# done. lo de tail citado anteriormente
+
 
 #ex12 Sustituye todas las apariciones de `et` por `ET` del archivo `at.txt` dentro de la carpeta lorem-copy. Deberás usar `sed`. 
+#   sed -i 's/et/ET/' ../lorem-copy/at.txt      
 
 #ex13 Encuentra al usuario activo en el sistema.
+#   who -H
+
 
 #ex14 Encuentra dónde estás en tu sistema de ficheros.
+#   pwd
+
 
 #ex15 Lista los archivos que terminan por `.txt` en la carpeta lorem.
+#   ls ../lorem/*.txt
+
 
 #ex16 Cuenta el número de líneas que tiene el archivo `sed.txt` dentro de la carpeta lorem. 
 
