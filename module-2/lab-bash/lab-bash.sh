@@ -62,28 +62,41 @@
 
 ## Bonus
 
-# Almacena en una variable `name` tu nombre.
+* Almacena en una variable `name` tu nombre.
 
-# Imprime esa variable.
+#name="julio"
+
+* Imprime esa variable.
+
+#echo $name
 
 * Crea un directorio nuevo que se llame como el contenido de la variable `name`.
+#mkdir $name
 
-* Elimina ese directorio. 
+* Elimina ese directorio.
+#rmdir $name 
 
-* Por cada archivo dentro de la carpeta `lorem` imprime el número de carácteres que tienen sus nombres. 
+* Por cada archivo dentro de la carpeta `lorem` imprime el número de carácteres que tienen sus nombres.
 Intenta primero mostrar los archivos mediante un bucle for 
     1. Imprime los ficheros
     2. Imprime las longitudes de los nombres de los ficheros
     3. Imprime outputs con la siguiente estructura: `lorem has 5 characters lenght`
 
 * Muestra los procesos de forma jerárquica que se están ejecutando en tu ordenador:
-    1. Usando el comando top o htop
-    2. Usando el comando ps con argumentos
+    #1. Usando el comando top o htop
+    #htop -t
+    #2. Usando el comando ps con argumentos
+    #ps -aef --forest
 
 * Muestra información sobre tu procesador por pantalla
+# lscpu
 
 * Crea 3 alias y haz que estén disponibles cada vez que inicias sesión
-
+# alias ll="ls -la"
+# alias p='pwd'
+# alias HW='echo "Hello World"'
 * Comprime las carpetas lorem y lorem-copy en un archivo llamado lorem-compressed.tar.gz
+# tar -czf lorem-compressed.tar.gz lorem-copy/* lorem/*
 
 * Descomprime el archivo lorem-compressed.tar.gz en la carpeta lorem-uncompressed
+# tar -xvf lorem-compressed.tar.gz --one-top-level
