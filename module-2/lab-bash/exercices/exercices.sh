@@ -86,40 +86,40 @@ rmdir $NAME
 # Por cada archivo dentro de la carpeta lorem imprime el número de carácteres que tienen sus nombres.
 # Intenta primero mostrar los archivos mediante un bucle for
 # Imprime los ficheros
+for i in $(ls lorem); do echo $i; done
 # Imprime las longitudes de los nombres de los ficheros
+for i in $(ls lorem); do echo ${#i}; done
 # Imprime outputs con la siguiente estructura: lorem has 5 characters lenght
-
-
-
+for i in $(ls lorem); do echo $i has ${#i} characters lenght; done
+# Sin el .txt:
+for file in $(ls lorem); do ff=`echo $file | cut -d '.' -f1`; echo -n "$ff has "; echo ${#ff} characters lenght; done
 
 # Muestra los procesos de forma jerárquica que se están ejecutando en tu ordenador:
+# No sirven en git bash. Lo he hecho en casa con ubuntu.
 # Usando el comando top o htop
+top
+# htop -t # hay que instalarlo
 # Usando el comando ps con argumentos
-
-# No me van en windows y git bash. Lo he hecho en casa con linux.
-# htop -t
-# ps -aef --forest
-
-
+ps -aef --forest
 
 
 # Muestra información sobre tu procesador por pantalla
-
-# No me van en windows y git bash. Lo he hecho en casa con linux.
-# lscpu
-
-
+# No sirve en git bash. Lo he hecho en casa con ubuntu.
+lscpu
 
 
 # Crea 3 alias y haz que estén disponibles cada vez que inicias sesión
-
-
+alias ga="git add"
+alias gs='git status'
+alias gc='git commit'
 
 
 # Comprime las carpetas lorem y lorem-copy en un archivo llamado lorem-compressed.tar.gz
-
+tar -czf lorem-compressed.tar.gz lorem-copy lorem
+# tar -czvf lorem-compressed.tar.gz lorem-copy lorem # con verbose: narra lo que está haciendo
+# tar -czf lorem-compressed.tar.gz lorem-copy/* lorem/*
 
 
 # Descomprime el archivo lorem-compressed.tar.gz en la carpeta lorem-uncompressed
-
-
+tar -xvf lorem-compressed.tar.gz --one-top-level
+mv lorem-compressed lorem-uncompressed
