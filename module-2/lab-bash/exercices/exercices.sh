@@ -19,7 +19,9 @@ rmdir new_dir # rmdir works because the directory is empty. rm -r for directorie
 cp lorem/sed.txt lorem-copy
 
 # Copia los otros dos archivos de la carpeta lorem a la carpeta lorem-copy en una sola línea mediante ;.
-cp lorem/lorem.txt lorem/at.txt lorem-copy # cp lorem/* lorem-copy/ # ¿mediante punto y coma?
+cp lorem/lorem.txt lorem/at.txt lorem-copy # cp lorem/* lorem-copy/ 
+# Con punto y coma:
+cp lorem/lorem.txt lorem-copy; cp lorem/at.txt lorem-copy
 
 # Muestra el contenido del archivo sed.txt dentro de la carpeta lorem.
 cat lorem/sed.txt
