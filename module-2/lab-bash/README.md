@@ -17,7 +17,7 @@ exercices  inputs  lorem  lorem-copy  modules  outputs  README.md
 ```
 3. Intenta hacer todos los ejercicios sin cambiar de directorio. 
 
-## Ejercicios
+## Ejercicios!!
 
 * Imprime en consola `Hello World`.
 
