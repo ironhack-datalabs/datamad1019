@@ -66,4 +66,35 @@
 
 # Ejercicio 17
 
-grep -o 'et' ../lorem/at.txt | wc -l
+# grep -o 'et' ../lorem/at.txt
+
+# Ejercicio 18
+
+# grep -o 'et' ../lorem/at.txt | wc -l
+
+# Ejercicio 19
+
+# grep -o 'et' ../lorem/* | wc -l
+
+###########################################
+############## BONUS ######################
+###########################################
+
+# Ejercicio 1
+
+# name='Mario'
+
+# Ejercicio 2
+
+# echo $name
+
+# Ejercicio 3
+
+# mkdir "$name"
+
+# Ejercicio 4
+
+# rmdir "$name"
+
+# Ejercicio 5
+
