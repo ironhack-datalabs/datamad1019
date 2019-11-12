@@ -58,11 +58,11 @@
 
 # Ejercicio 15
 
-# cat ../lorem/lorem.txt | wc -l
+# cat ../lorem/sed.txt | wc -l
 
 # Ejercicio 16
 
-# find ../ -name "lorem*" | wc -l
+# find ../ -name "lorem*.txt" | wc -l
 
 # Ejercicio 17
 
@@ -97,4 +97,50 @@
 # rmdir "$name"
 
 # Ejercicio 5
+
+# i)
+#for f in $(ls ../lorem)
+#do
+#    echo $f 
+#done
+
+# ii)
+#for f in $(ls ../lorem)
+#do
+#    echo ${#f}
+#done
+
+# iii)
+
+#for f in $(ls ../lorem)
+#do
+#    chrlen=${#f}
+#    printf "%s has %d characters length.\n" "${f}" $chrlen 
+#done
+
+# Ejercicio 6
+
+# i)
+
+# top
+
+# ii)
+
+# ps -ef
+
+# Ejercicio 7
+
+# cat /proc/cpuinfo 
+
+# Ejercicio 8
+
+# I must sudo nano ~/.bashrc and then add the aliases like "alias c=clear", for example.
+
+# Ejercicio 9
+
+#tar -czvf ../lorem-compressed.tar.gz ../lorem ../lorem-copy
+
+# Ejercicio 10
+
+# tar -xzvf ../lorem-compressed.tar.gz
 
