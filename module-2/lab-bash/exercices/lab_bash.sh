@@ -107,7 +107,7 @@
 # ii)
 #for f in $(ls ../lorem)
 #do
-#    echo ${#f}
+#    echo ${f%.*}
 #done
 
 # iii)
