@@ -1,54 +1,63 @@
 #!/bin/bash
 
 # ex1: print "hello world"  (using in therminal the command cat+filename)
-#echo $"Hello World"
+#   echo $"Hello World"
 
 # ex2: create a new directory 
-#mkdir new_dir in terminal
+#   mkdir new_dir in terminal
 
 # ex3: remove new directory
-# rm -d new_dir
+#   rm -d new_dir
 
 # ex4 Copia el archivo `sed.txt` dentro de la carpeta lorem a la carpeta lorem-copy. 
-# cp ../lorem/sed.txt ../lorem-copy/    
+#   cp ../lorem/sed.txt ../lorem-copy/    
 
 #ex5 Copia los otros dos archivos de la carpeta lorem a la carpeta lorem-copy en una sola línea mediante `;`. 
 '''
 No aparece en el help el ";" . Buscar mejor luego
 '''
-# cp ../lorem/* ../lorem-copy/
+#   cp ../lorem/* ../lorem-copy/
 
 
 # ex6 Muestra el contenido del archivo `sed.txt` dentro de la carpeta lorem.
+#   cat ../lorem/sed.txt 
 
 
-#* Muestra el contenido de los archivos `at.txt` y `lorem.txt` dentro de la carpeta lorem. 
+#ex7 Muestra el contenido de los archivos `at.txt` y `lorem.txt` dentro de la carpeta lorem.
+#   cat ../lorem/sed.txt | cat ../lorem/at.txt
 
-#* Visualiza las primeras 3 líneas del archivo `sed.txt` dentro de la carpeta lorem-copy 
 
-#* Visualiza las ultimas 3 líneas del archivo `sed.txt` dentro de la carpeta lorem-copy 
+#ex8 Visualiza las primeras 3 líneas del archivo `sed.txt` dentro de la carpeta lorem-copy 
+#    head -n3 ../lorem-copy/sed.txt 
 
-#* Añade `Homo homini lupus.` al final de archivo `sed.txt` dentro de la carpeta lorem-copy. 
 
-#* Visualiza las últimas 3 líneas del archivo `sed.txt` dentro de la carpeta lorem-copy. Deberías ver ahora `Homo homini lupus.`. 
+#ex9 Visualiza las ultimas 3 líneas del archivo `sed.txt` dentro de la carpeta lorem-copy
+#   tail -3 ../lorem-co
 
-#* Sustituye todas las apariciones de `et` por `ET` del archivo `at.txt` dentro de la carpeta lorem-copy. Deberás usar `sed`. 
 
-#* Encuentra al usuario activo en el sistema.
+#ex10 Añade `Homo homini lupus.` al final de archivo `sed.txt` dentro de la carpeta lorem-copy. 
+#   echo "Homo homini lupus" >> ../lorem-copy/sed.txt 
 
-#* Encuentra dónde estás en tu sistema de ficheros.
 
-#* Lista los archivos que terminan por `.txt` en la carpeta lorem.
+#ex11 Visualiza las últimas 3 líneas del archivo `sed.txt` dentro de la carpeta lorem-copy. Deberías ver ahora `Homo homini lupus.`. 
 
-#* Cuenta el número de líneas que tiene el archivo `sed.txt` dentro de la carpeta lorem. 
+#ex12 Sustituye todas las apariciones de `et` por `ET` del archivo `at.txt` dentro de la carpeta lorem-copy. Deberás usar `sed`. 
 
-#* Cuenta el número de **archivos** que empiezan por `lorem` que están en este directorio y en directorios internos.
+#ex13 Encuentra al usuario activo en el sistema.
 
-#* Encuentra todas las apariciones de `et` en `at.txt` dentro de la carpeta lorem.
+#ex14 Encuentra dónde estás en tu sistema de ficheros.
 
-#* Cuenta el número de apariciones del string `et` en `at.txt` dentro de la carpeta lorem. 
+#ex15 Lista los archivos que terminan por `.txt` en la carpeta lorem.
 
-#*  Cuenta el número de apariciones del string `et` en todos los archivos del directorio lorem-copy. 
+#ex16 Cuenta el número de líneas que tiene el archivo `sed.txt` dentro de la carpeta lorem. 
+
+#ex17 Cuenta el número de **archivos** que empiezan por `lorem` que están en este directorio y en directorios internos.
+
+#ex18 Encuentra todas las apariciones de `et` en `at.txt` dentro de la carpeta lorem.
+
+#ex19 Cuenta el número de apariciones del string `et` en `at.txt` dentro de la carpeta lorem. 
+
+#ex20  Cuenta el número de apariciones del string `et` en todos los archivos del directorio lorem-copy. 
 
 ## Ficheros bash
 
