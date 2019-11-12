@@ -41,3 +41,29 @@
 #grep -o 'et' "../lorem/at.txt" | wc -l
 #ej20
 #grep -o 'et' ../lorem-copy/* | wc -l
+
+
+
+###BONUS
+#NOMBRE="Clara"
+#echo $NOMBRE
+
+#mkdir $NOMBRE
+#rmdir $NOMBRE
+
+#for e in $(ls '../lorem/')
+#do
+#fn=${e%.*}
+#echo $fn 'has' ${#fn} 'characters lenght'
+#done
+
+#top
+#ps l
+## could be <s|l|o|t|m|a>
+
+#less /proc/cpuinfo
+
+#gedit ~/.bashrc  <- aquí se cambia pero no quiero :( 
+
+#tar -czvf lorem-compressed.tar.gz "../lorem/" "../lorem-copy/"
+#tar -xzvf lorem-compressed.tar.gz
