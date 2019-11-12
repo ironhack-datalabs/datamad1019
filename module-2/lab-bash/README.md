@@ -78,7 +78,7 @@ ls
 Ejecutamos el script:
 ```
 $ bash list_files.sh
-```
+
 
 Y veremos por consola el siguiente output. 
 ```console
