@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 https://github.com/David-Fde/pipelane-project.git
+=======
+https://github.com/David-Fde/pipelane-project.git
+>>>>>>> 25a9bc0a7f7352630fdd2dfc83f393a6b11e1d8e
