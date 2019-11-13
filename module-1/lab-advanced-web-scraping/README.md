@@ -21,3 +21,6 @@ Upon completion, add your deliverables to git. Then commit git and push your bra
 ## Resources
 
 [5 strategies to write unblock-able web scrapers in Python](http://blog.adnansiddiqi.me/5-strategies-to-write-unblock-able-web-scrapers-in-python/)
+ 
+ 
+ 
