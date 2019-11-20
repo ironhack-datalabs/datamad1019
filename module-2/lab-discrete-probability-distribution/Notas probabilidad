@@ -1,0 +1,99 @@
+# Intro to Probability
+
+- **Population:** The population includes all elements in a dataset
+- **Sample**: A subset of the population
+
+![alt text](./images/m2/normal_distribution.png)
+
+- **Random Variable**: Es una función definida sobre el espacio muestral `S` que asigna valores
+  del conjunto R de los numeros reales.
+  Intuitivamente, asigna un valor numerico a cada posible resultado del espacio muestral.
+  Por ejemplo, si el espacio muestral es {llueve, nieva, despejado}, podemos definir una
+  variable aleatoria `X` tal que `X=3` si llueve `X=6` si nieva y `X=-2.7` si esta despejado.
+
+  Supongamos que las medidas de probabilidad son tales que:
+
+  - `P(X=3)=P(lluvia)=0.4`
+  - `P(X=6)=P(nieve)=0.15`
+  - `P(X=-2.7)=P(despejado)=0.45`
+    También podemos calcular `P(X€ {3,6}) = P(X=3) + P(X=6) = 0.4+0.15 = 0.55`
+
+    **La distribución** de la variable aleatoria `X` es el conjunto de probabilidades `P(X€B)` para todo subconjunto `B` de numeros reales. La probabolidad de `P(X€B)` se evalua calculando
+    las probabilidades del conjunto de valores de las respuestas de `S` tales que `X(S) € B`, es decir `P(X € B) = P({s € S : X(s) € B})`
+
+## Distribuciones discretas
+
+- **Discrete Distribution**: La probabilidad total asociada a una variable aleatoria `X` puede obtenerse a partir de la probabilidad de que `X` sea igual a **ciertos valores concretos**.
+  Una variable aleatoria es discreta si `sumatorio(x€R) de P(X=x) = 1`
+
+### Principales distribuciones discretas
+
+- **Bernoulli**: Bernoulli(⍬), lanzar una moneda con probabilidad `⍬` de que salga cara
+  y `1-⍬` que salga cruz, siendo `0<⍬<1`, ejemplo `X=1` si sale cara y `X=0` si sale cruz.
+  Las distribuciones de bernoulli se presentan cada vez que tenemos una variable respuesta que solo puede tomar dos valores.
+
+  - **Ejemplos**: Prueba en cadena de producción, seleccionar una persona al azar y ver si es hombre o mujer, etc.
+
+- **Binomial**: Binomial(n,⍬) (Binomial(1,⍬)=Bernoulli(⍬)) Lanzar `n` monendas al aire, cada una de las cuales tiene una probabilidad (independiente) ⍬ de que salga cara y 1-⍬ que salga cruz.
+
+  - `P(X=x) = factorial(n)/factorial(n)*factorial(n-x)`.
+    La distribución binomial es aplicable en aquellas situaciones que implican `n` ensayos independientes de un sistema aleatorio. Para cada ensayo registramos `exito` o `fracaso`.
+    El numero de éxitos en `n` ensayos seguiría la distribución de binomial.
+  - **Ejemplo**: Un jugador de beisbol tiene una probabilidad `⍬` de conseguir un bateo en `n` intentos.
+  - https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binom.html
+
+- **Geométrica**: Consideremos el caso de lanzar repetidas veces una moneda (`⍬` de que salga cara y `1-⍬` que salga cruz). Sea `X` el numero de cruces que aparece antes de que salga cara.
+  - Cuenta el numero de fallos hasta que se produce un éxito:
+  - **Ejemplo**: Si fabricamos bombillas, el numoero de bombillas que funcionan hasta que sale la primera defectuosa
+  - https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.geom.html
+
+## Distribuciones contínuas
+
+- **Continuous Distribution**: You show up at a bus stop to wait for a bus that comes by once per hour. You do not know what time the bus came by last. The arrival time of the next bus is a continuous uniform distribution [0,1] measured in hours.
+
+  - `P(X=x) = 0` para un punto concreto. Lo que suma 1 es la integral sobre todo `R`.
+  - Solo podemos calcular la probabilidad de `P(a <= X <= b)` usando la integral en ese rango. A esto se le llama **función de densidad**
+
+### Principales distribuciones contínuas
+
+- **Distribución uniforme**: `[0,1]` o `[L,R]`.
+  - Función de densidad es: `P(a <= X <= b) = (b-a)/(R-L)`
+  - Destacar que tiene el mismo valor de probabilidad para todos los intervalos
+  - https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.uniform.html
+- **Distribución exponencial**
+
+  - `f(x)= e^(-x)` si `x>0` sino es `0`
+  - **Ejemplo** Se puede usar también para modelar tiempos de vida. Por ejemplo para calcular el tiempo de vida de una bombilla producida. Notse que el tiempo puede ser un valor en todo `R`.
+
+  - https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.expon.html
+
+- **Distribución Gamma**
+
+  - Se puede usar también para modelar tiempos de vida ya que ofrece una familia de funciones con variedad de perfiles
+
+- **Distribución Normal**: `N(mu,ro^2)`
+  - `ro^2`: Varianza, `ro`: Desviacion estándar
+  - Teorema del limite central
+  - https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html
+
+## Terminos importantes de probabilidad
+
+- **Conditional Probability**: The conditional probability P(A|B) is the probability of event A given that event B as occurred.
+  ![alt text](./images/m2/prob_conditional_1.png)
+  ![alt text](./images/m2/prob_conditional_table.png)
+  ![alt text](./images/m2/prob_conditional_formula_2.jpg)
+  ![alt text](./images/m2/prob_conditional_formula_1.jpg)
+
+  - **Visualization** http://setosa.io/conditional/
+
+- **Mutual exclusivity**: Two events are said to be mutually exclusive if they cannot happen at the same time.
+  For example, if we toss a coin, either heads or tails might turn up, but not heads and tails at the same time.
+  ![alt text](./images/m2/mutual_exclusivity.webp)
+
+- **Variance**: The average of the squared differences from the Mean.
+  _ Work out the Mean (the simple average of the numbers)
+  _ Then for each number: subtract the Mean and square the result (the squared difference).
+  _ Then work out the average of those squared differences.
+  _ https://www.mathsisfun.com/data/standard-deviation.html#WhySquare
+
+- **Standard Deviation:** The Standard Deviation is a measure of how spread out numbers are. Its symbol is σ. it is the square root of the **Variance**.
