@@ -2,13 +2,13 @@ import pandas as pd
 from pymongo import MongoClient
 import re
 import numpy as np
-import sys
-sys.path.insert(1, '/home/julio/IRONHACK/datamad1019/mongo-project/Functions')
-import functions
-
+from Functions.location import *
+from Functions.money import moneyClean
 
 client = MongoClient('mongodb://localhost:27017/')
 db = client.companies
+
+#### Here I make a Pymongo query to get just the companies with certain conditions ####
 
 companies = db.companies.find({
     "offices": {
@@ -20,47 +20,53 @@ companies = db.companies.find({
     }
 }, {"name": 1, "founded_year": 1, "offices": 1, "category_code": 1, "total_money_raised": 1, "deadpooled_year": 1, "number_of_employees": 1})
 
-data_companies = pd.DataFrame(companies)
+#### Create the dataframe ####
 
+clean_companies = pd.DataFrame(companies)
 
-geo_office = data_companies[["offices"]].apply(
-    getGeoLocation, result_type="expand", axis=1)  # Aplico la función
+#### Apply Location Function ####
 
-df_clean = pd.concat([data_companies, geo_office], axis=1)[
+geo_office = clean_companies[["offices"]].apply(
+    getGeoLocation, result_type="expand", axis=1)
+
+#### Join data to create Principal Office ####
+
+df_clean = pd.concat([clean_companies, geo_office], axis=1)[
     ["principal_office"]]
 
-data_companies['geoDescription'] = df_clean  # Creo la columna
+#### Just Tech Business ####
 
-
-data_companies['category_code'].value_counts()
+clean_companies['geoDescription'] = df_clean
 
 list_category = {'web': 'tech', 'software': 'tech',
                  'games_video': 'tech', 'advertising': 'tech', 'mobile': 'tech', 'ecommerce': 'tech', 'search': 'tech', 'network_hosting': 'tech', 'consulting': 'tech', 'hardware': 'tech', 'biotech': 'tech', 'cleantech': 'tech', 'analytics': 'tech', 'hardware': 'tech', 'photo_video': 'tech',
                  'messaging': 'tech', 'design': 'tech'}
 
-data_companies = data_companies.replace(
+clean_companies = clean_companies.replace(
     to_replace=list_category, inplace=False)
 
-# Reemplazo las categorías para quedarme con la categoría de tech en los casos de arriba y el resto mantenerlas como son
+#### Removing Null Values ####
 
-data_companies['founded_year'] = data_companies['founded_year'].dropna(
+clean_companies['founded_year'] = clean_companies['founded_year'].dropna(
     axis=0).astype('int64', inplace=True)
 
-latitude = [d[0].get('latitude') for d in data_companies.offices]
-longitude = [d[0].get('longitude') for d in data_companies.offices]
+#### Create Longitude and Latitude Columns ####
 
-data_companies['latitude'] = latitude
-data_companies['longitude'] = longitude
+latitude = [d[0].get('latitude') for d in clean_companies.offices]
+longitude = [d[0].get('longitude') for d in clean_companies.offices]
 
-# creo columnas de latitud y longitud por separado
+clean_companies['latitude'] = latitude
+clean_companies['longitude'] = longitude
 
-city = [d[0].get('city') for d in data_companies.offices]
-country = [d[0].get('country_code') for d in data_companies.offices]
+city = [d[0].get('city') for d in clean_companies.offices]
+country = [d[0].get('country_code') for d in clean_companies.offices]
 
-# seleciono la ciuidad y el código de país para crear dos columnas
+#### City and Country in two Columns ####
 
-data_companies['city'] = city
-data_companies['country'] = country
+clean_companies['city'] = city
+clean_companies['country'] = country
+
+#### Deleting useless Columns ####
 
 
 def dropcolumns(data, columns):
@@ -68,34 +74,31 @@ def dropcolumns(data, columns):
     return data
 
 
-# Borro las columnas de office y _id porque no las necesito
-data_companies = dropcolumns(data_companies, ['offices', '_id'])
+clean_companies = dropcolumns(clean_companies, ['offices', '_id'])
 
-data_companies = data_companies[data_companies['deadpooled_year'].isna()]
-# Me quedo los que deadpooled_year sean nulos para eliminar las empresas que ya no tengan actividad
+#### Cleaning Deadpooleds ####
+clean_companies = clean_companies[clean_companies['deadpooled_year'].isna()]
+
+#### Apply function to clean some locations ####
+
+clean_companies['city'] = clean_companies['city'].apply(cleanLocation)
 
 
-data_companies['city'] = data_companies['city'].apply(cleanLocation)
+#### Final Cleaning Columns ####
 
-# Limpio las localizaciones para terminar de unificarlas
-
-data_companies.dropna(
+clean_companies.dropna(
     subset=['founded_year', 'latitude', 'longitude'], inplace=True)
 
-# Elimino nulos de estas columnas porque no me sirven empresas que no sepamos el año de fundación
-# ni la latitud o longitud
-
-data_companies = dropcolumns(data_companies, 'deadpooled_year')
-
-# Ya me quedé con las empresas que tienen actividad, así que no necesito más la columna
-
-# Función para unificar las monedas y su valor en miles, millones o billions
+clean_companies = dropcolumns(clean_companies, 'deadpooled_year')
 
 
-data_companies['total_money_raised'] = data_companies['total_money_raised'].apply(
-    moneyRaise)
+#### Apply function to moneyClean ####
 
-# Rellenar los nulos en la columna de empleados
+
+clean_companies['total_money_raised'] = clean_companies['total_money_raised'].apply(
+    moneyClean)
+
+#### Fill Null Values ####
 
 
 def fillNaN(data, col):
@@ -103,18 +106,20 @@ def fillNaN(data, col):
     return data
 
 
-data_companies = fillNaN(data_companies, 'number_of_employees')
+clean_companies = fillNaN(clean_companies, 'number_of_employees')
 
-data_companies = data_companies[data_companies['number_of_employees'] != 0.0]
-data_companies = data_companies[data_companies['total_money_raised'] != 0]
+#### Just Business with employees and money raised ####
 
-# Quiero empresas que tengan al menos un empleado o algún tipo de ingresos
+clean_companies = clean_companies[clean_companies['number_of_employees'] != 0.0]
+clean_companies = clean_companies[clean_companies['total_money_raised'] != 0]
 
-data_companies = data_companies[data_companies['country'] != 'USA']
+#### USA have the better values ####
+clean_companies = clean_companies[clean_companies['country'] != 'USA']
 
-# Me quedo con las empresas que no sean de USA porque no va a formar parte finalmente del grupo de empresas que
-# me interesan
+clean_companies = clean_companies.reset_index(drop=True)
 
-data_companies = data_companies.reset_index(drop=True)
+#### Json and Csv outputs ####
 
-data_companies.to_json('./data_companies_clean.json', orient='records')
+clean_companies.to_json(
+    './Output/clean_companies_clean.json', orient='records')
+clean_companies.to_csv('./Output/clean_companies_clean.csv', index=True)
