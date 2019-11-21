@@ -1,3 +1,5 @@
+import re
+
 def getGeoLocation(data):   #Selecciono los elementos que necesito para hacer el geoindex después
     data = data['offices']
     principal = None
