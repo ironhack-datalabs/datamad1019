@@ -3,7 +3,7 @@
 # Lab | Principal Component Analysis
 
 
-## Introduction
+## Introduction ña
 
 In this lab, we will learn about dimensionality reduction of data using principal component analysis. We will find the most important components in our data and reduce the amount of columns to enable visualization of high dimensional data.
 
