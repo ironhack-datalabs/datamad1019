@@ -2,7 +2,7 @@
 
 # Lab | Introduction to Machine Learning and ML Workflow
 
-joli
+
 ## Introduction
 
 As a data analyst or data scientist, you will find that while using ML algorithms is the fun and glamorous part of your work. Preparing your data sometimes takes up 90% of your time. Therefore, learning to prepare your data properly is one of the most important skills you will need.
