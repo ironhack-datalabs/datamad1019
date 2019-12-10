@@ -1,0 +1,3 @@
+https://github.com/castares/kaggle-diamonds
+https://github.com/castares/kaggle-avila-bible
+
