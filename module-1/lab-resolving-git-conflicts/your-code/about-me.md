@@ -15,6 +15,4 @@
 * What will your future role look like?
 * What is your career goal?
 =======
-Adios
-hola,que tal?
->>>>>>> 059d03f283357850f471d15081a0792a36dec1c3
+
