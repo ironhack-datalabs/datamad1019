@@ -1,7 +1,10 @@
+
+
+
 # Who am I
 
-* Where are you from?
-* What do you do?
+* Where are you from? I'm from Spain
+* What do you do? I'm psychologist
 * Do you have previous experience with technology/data?
 
 # Why am I here
